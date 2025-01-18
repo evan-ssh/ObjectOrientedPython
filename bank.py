@@ -40,8 +40,19 @@ class Bank:
             json.dump(transactions,file)
     
     def AddTransactionMain(self):
-     
-    
+     while True:
+      try:
+          name = input("Enter name of transaction")
+          amount = float(input("Enter amount"))
+          type = input("Expense or Deposit?") 
+          note = input("Leave a Note?")
+          transaction = Transaction(name,amount,type,note)
+          self.add_transaction(transaction)
+          self.save_file()
+          print(f"{name} added succesfully!")
+          break
+      except ValueError:
+          print(f"Amount entered must be a number")
 
     
     
