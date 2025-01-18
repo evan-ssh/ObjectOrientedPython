@@ -14,3 +14,9 @@ class Bank:
 
     def add_transaction(self,transaction):
         self.wallet.append(transaction)
+    
+    def del_transaction(self,name):
+        for transaction in self.wallet:
+            self.wallet.remove(transaction)
+            return f"{name} has been removed"
+        return f"{name} wasn't found"
