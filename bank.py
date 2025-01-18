@@ -6,7 +6,7 @@ class Transaction:
         self.type = type
         self.note = note
     def display_info(self):
-        return f"|Transaction Details|\n |Expense{self.title}|\n |Amount: {self.amount}| \n |Expense Type{self.type}"
+        return f"|Transaction Details|\n |Expense{self.name}|\n |Amount: {self.amount}| \n |Expense Type{self.type}"
     
 
 class Bank:
@@ -18,8 +18,9 @@ class Bank:
     
     def del_transaction(self,name):
         for transaction in self.wallet:
-            self.wallet.remove(transaction)
-            return f"{name} has been removed"
+            if transaction.name == name:
+                self.wallet.remove(transaction)
+                return f"{name} has been removed"
         return f"{name} wasn't found"
     def display_transactions(self):
         if not self.wallet:
@@ -35,7 +36,7 @@ class Bank:
             print("No file was found")
 
     def save_file(self,filename="wallet.json"):
-        transactions = [{'Name': transaction.name, 'Amount': transaction.amount, 'Type': transaction.type, 'Note': transaction.note}]
+        transactions = [{'Name': transaction.name, 'Amount': transaction.amount, 'Type': transaction.type, 'Note': transaction.note} for transaction in self.wallet]
         with open(filename,"w") as file:
             json.dump(transactions,file)
     
