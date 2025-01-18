@@ -26,9 +26,22 @@ class Bank:
             return f"No transaction available in your wallet."
         return f"\n".join([transaction.display_info() for transaction in self.wallet])
     
-    def save_file(self, filename="wallet.json"):
+    def load_file(self,filename="wallet.json"):
+        try:
+            with open(filename,"r") as file:
+                transactions = json.load(file)
+                self.wallet = [Transaction(transaction['Name'], transaction,['Amount'], transaction['Type'], transaction['Note']) for transaction in transactions]
+        except FileNotFoundError:
+            print("No file was found")
+
+    def save_file(self,filename="wallet.json"):
         transactions = [{'Name': transaction.name, 'Amount': transaction.amount, 'Type': transaction.type, 'Note': transaction.note}]
         with open(filename,"w") as file:
             json.dump(transactions,file)
+    
+    def AddTransactionMain(self):
+     
+    
+
     
     
