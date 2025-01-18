@@ -11,3 +11,6 @@ class Transaction:
 class Bank:
     def __init__(self):
         self.wallet = []
+
+    def add_transaction(self,transaction):
+        self.wallet.append(transaction)
