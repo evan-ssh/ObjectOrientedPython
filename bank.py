@@ -1,3 +1,4 @@
+import json
 class Transaction:
     def __init__(self,name,amount,type,note=""):
         self.name = name
@@ -24,3 +25,10 @@ class Bank:
         if not self.wallet:
             return f"No transaction available in your wallet."
         return f"\n".join([transaction.display_info() for transaction in self.wallet])
+    
+    def save_file(self, filename="wallet.json"):
+        transactions = [{'Name': transaction.name, 'Amount': transaction.amount, 'Type': transaction.type, 'Note': transaction.note}]
+        with open(filename,"w") as file:
+            json.dump(transactions,file)
+    
+    
