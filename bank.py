@@ -20,3 +20,7 @@ class Bank:
             self.wallet.remove(transaction)
             return f"{name} has been removed"
         return f"{name} wasn't found"
+    def display_transactions(self):
+        if not self.wallet:
+            return f"No transaction available in your wallet."
+        return f"\n".join([transaction.display_info() for transaction in self.wallet])
