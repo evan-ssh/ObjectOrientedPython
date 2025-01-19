@@ -13,3 +13,17 @@ class Deck:
 
     def __init__(self):
         self.cards = []
+    
+    def create_deck(self):
+        for face in self.values:
+            for suit in self.suits:
+                if face =="Ace":
+                    value = 11
+                    is_ace = True
+                elif face == "Jack" or "King" or "Queen":
+                    value = 10
+                    is_ace = False
+                else:
+                    value = int(face)
+                    is_ace = False
+                self.cards.append(Card(suit,face,value,is_ace))
