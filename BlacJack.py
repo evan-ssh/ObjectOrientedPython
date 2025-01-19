@@ -4,4 +4,6 @@ class Card:
         self.face = face
         self.value = value
         self.is_ace = is_ace
+    def show_card(self):
+        return(f"{self.face} of {self.suit}")
         
