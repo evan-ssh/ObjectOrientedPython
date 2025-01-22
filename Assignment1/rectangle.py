@@ -8,3 +8,10 @@ class Rectangle:
     
     def calculate_area(self):
         return self.height * self.width 
+    
+    def display_rectangle(self):
+        for row in range(self.height):
+            if row == 0 or row == self.height:
+                print('*' * self.width)
+            else:
+                print('*' + (' ' * (self.width-2)) + '*')
