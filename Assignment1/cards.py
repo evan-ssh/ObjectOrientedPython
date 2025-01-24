@@ -29,7 +29,7 @@ class Deck:
     def count_cards(self):
         return len(self.cards)
 
-class PLayer:
+class Player:
     def __init__(self):
         self.hand = []
 
@@ -41,3 +41,11 @@ class PLayer:
         print("Here are your cards:")
         for cards in self.hand:
             print(cards.show_card())
+
+if __name__ == "__main__":
+    deck = Deck()
+    player = Player()
+    number_of_cards = int(input("Num of cards to draw"))
+    player.draw_card(deck,number_of_cards)
+    player.show_hand()
+    print(f"There are {deck.count_cards()} cards left in the deck\nGoodLuck!")
