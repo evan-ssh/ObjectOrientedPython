@@ -11,12 +11,6 @@ class Customer:
         self.state = state
         self.zip = zip
 
-    def customer_info(self):
-        if self.company_name:
-            return f"{self.cust_id}\n{self.first_name},{self.last_name}\n{self.company_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
-        else:
-            return f"{self.cust_id}\n{self.first_name},{self.last_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
-
     def open_file(self):
         customers = []
         with open('customers.csv') as file:
@@ -25,4 +19,16 @@ class Customer:
                 customer = Customer(cust_id = row['cust_id'].strip(),first_name = row['first_name'].strip(), last_name = row['last_name'].strip(),company_name = row['company_name'].strip(),address = row['address'].strip(), city = row['city'].strip(), state = row['state'].strip(), zip = row['zip'].strip())
                 customers.append(customer)
         return customers
+
+    def customer_info(self):
+        if self.company_name:
+            return f"{self.cust_id}\n{self.first_name},{self.last_name}\n{self.company_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
+        else:
+            return f"{self.cust_id}\n{self.first_name},{self.last_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
+
+    def customer_by_id(self,customers,customer_id):
+        for customer in customers:
+            if customer.cust_id == customer_id:
+                return customer
+        return None
         
