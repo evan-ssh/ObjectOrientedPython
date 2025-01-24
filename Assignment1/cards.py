@@ -32,3 +32,7 @@ class Deck:
 class PLayer:
     def __init__(self):
         self.hand = []
+
+    def draw_card(self,deck,number_of_cards):
+        for _ in range(number_of_cards):
+            self.hand.append(deck.pop_card())
