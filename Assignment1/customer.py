@@ -11,7 +11,7 @@ class Customer:
         self.state = state
         self.zip = zip
 
-    def open_file(self):
+    def open_file():
         customers = []
         with open('customers.csv') as file:
             csv_reader = csv.DictReader(file)
@@ -22,13 +22,21 @@ class Customer:
 
     def customer_info(self):
         if self.company_name:
-            return f"{self.cust_id}\n{self.first_name},{self.last_name}\n{self.company_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
+            return f"{self.first_name},{self.last_name}\n{self.company_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
         else:
-            return f"{self.cust_id}\n{self.first_name},{self.last_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
+            return f"{self.first_name},{self.last_name}\n{self.address}\n{self.city},{self.state},{self.zip}"
 
-    def customer_by_id(self,customers,customer_id):
+    def customer_by_id(customers,customer_id):
         for customer in customers:
             if customer.cust_id == customer_id:
                 return customer
         return None
-        
+
+if __name__ == "__main__":
+    customers = Customer.open_file()
+    customer_id = input("Enter customer ID:").strip()
+    customer = Customer.customer_by_id(customers, customer_id)
+    if customer:
+        print(customer.customer_info())
+    else:
+        print("No customer with that id")
