@@ -6,4 +6,9 @@ class Card:
     
     def show_card(self):
         return f"{self.rank} of {self.suit}"
-        
+
+class Deck:
+    ranks = ["Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"]
+    suits = ["Hearts", "Diamonds","Spades","CLubs"]
+    def __init__(self):
+        self.cards = []
