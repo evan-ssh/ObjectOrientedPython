@@ -12,8 +12,13 @@ class Deck:
     suits = ["Hearts", "Diamonds","Spades","CLubs"]
     def __init__(self):
         self.cards = []
+        self.create_deck()
+        self.shuffle_deck()
 
     def create_deck(self):
         for rank in self.ranks:
          for suit in self.suits:
             self.cards.append(Card(rank,suit))
+
+    def shuffle_deck(self):
+        random.shuffle(self.cards)
