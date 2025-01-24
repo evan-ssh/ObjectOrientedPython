@@ -36,3 +36,8 @@ class PLayer:
     def draw_card(self,deck,number_of_cards):
         for _ in range(number_of_cards):
             self.hand.append(deck.pop_card())
+    
+    def show_hand(self):
+        print("Here are your cards:")
+        for cards in self.hand:
+            print(cards.show_card())
