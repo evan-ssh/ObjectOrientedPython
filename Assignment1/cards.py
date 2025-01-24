@@ -28,3 +28,7 @@ class Deck:
 
     def count_cards(self):
         return len(self.cards)
+
+class PLayer:
+    def __init__(self):
+        self.hand = []
