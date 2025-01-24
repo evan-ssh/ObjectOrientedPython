@@ -12,3 +12,8 @@ class Deck:
     suits = ["Hearts", "Diamonds","Spades","CLubs"]
     def __init__(self):
         self.cards = []
+
+    def create_deck(self):
+        for rank in self.ranks:
+         for suit in self.suits:
+            self.cards.append(Card(rank,suit))
