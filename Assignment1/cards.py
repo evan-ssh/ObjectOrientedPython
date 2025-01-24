@@ -25,3 +25,6 @@ class Deck:
     
     def pop_card(self):
         return self.cards.pop()
+
+    def count_cards(self):
+        return len(self.cards)
