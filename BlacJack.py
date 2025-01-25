@@ -39,3 +39,6 @@ class Deck:
 class Player:
     def __init__(self):
         self.hand = []
+    
+    def add_hand(self,card):
+        self.hand.append(card)
