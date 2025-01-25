@@ -35,3 +35,7 @@ class Deck:
     
     def deal_card(self):
         return self.cards.pop()
+
+class Player:
+    def __init__(self):
+        self.hand = []
