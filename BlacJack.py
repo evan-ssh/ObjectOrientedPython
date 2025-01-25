@@ -1,3 +1,4 @@
+import random
 class Card:
     def __init__(self,suit,face,value,is_ace):
         self.suit = suit
@@ -13,6 +14,7 @@ class Deck:
 
     def __init__(self):
         self.cards = []
+        self.shuffle_deck()
     
     def create_deck(self):
         for face in self.values:
@@ -27,3 +29,6 @@ class Deck:
                     value = int(face)
                     is_ace = False
                 self.cards.append(Card(suit,face,value,is_ace))
+        
+    def shuffle_deck(self):
+        random.shuffle(self.cards)
