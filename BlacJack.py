@@ -42,3 +42,15 @@ class Player:
     
     def add_hand(self,card):
         self.hand.append(card)
+
+    def hand_value(self):
+        value = 0
+        aces = 0
+        for card in self.hand:
+            value += card.value
+            if card.is_ace:
+                aces += 1
+        while value > 21 and aces:
+            value - 10
+            aces - 1
+        return value
