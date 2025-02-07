@@ -33,7 +33,9 @@ class Lisa(Player):
         self.hand = random.choice(ListOfHands)
 
 if __name__ == "__main__":
-    player = Player("player", "paper")
+ opponent = input("Who Would You Like To Face For An Opponent Bart or Lisa?")
+ if opponent == "Bart":    
+    player = Player("player", "rock")
     bart = Bart()
     print(f"Player Hand: {player.hand}")
     print(f"Barts Hand: {bart.hand}")
@@ -42,3 +44,14 @@ if __name__ == "__main__":
         print("Its a tie")
     else:
         print(f"{winCase} Wins With Hand {winCase.hand}")
+
+ elif opponent == "Lisa":
+    player = Player("player", "rock")
+    lisa = Lisa()
+    print(f"Player Hand: {player.hand}")
+    print(f"Lisa's Hand: {lisa.hand}")
+    winCase = player.play(lisa)
+    if winCase == None:
+        print("Its a tie")
+    else:
+        print(f"{winCase} Wins With {winCase.hand}")
