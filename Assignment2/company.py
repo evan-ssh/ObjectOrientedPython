@@ -3,7 +3,6 @@ class Person():
         Self.firstName = firstName
         Self.lastName = lastName
         Self.email = email
-
     def __str__(self):
         return f"First Name: {self.firstName}\nLast Name: {self.lastName}\nEmail: {self.email}"
     
@@ -13,14 +12,14 @@ class Employee(Person):
         self.ssn = ssn
     
     def __str__(self):
-        return f"Name: {self.firstName}\nEmail: {self.email}\nSSN: {self.ssn}"
+        return f"Name: {self.firstName}\nEmail: {self.email}\nSSN: {self.ssn}\n"
     
 class Customer(Person):
     def __init__(self, firstName, lastName, email,cust_id):
         Person.__init__(self,firstName,lastName,email)
         self.cust_id = cust_id
     def __str__(self):
-        return f"Name: {self.firstName}\n Email: {self.email}\n Customer ID: {self.cust_id}"
+        return f"Name: {self.firstName}\nEmail: {self.email}\nCustomerID: {self.cust_id}\n"
 
 if __name__ == "__main__":
     #__str__
