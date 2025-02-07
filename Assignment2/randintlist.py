@@ -12,7 +12,7 @@ class RandomIntList(List):
         for i in range(number_of_ints):
             self.integers.append(random.randint(1,100))
     
-    def show(self):
+    def __str__(self):
         return ','.join(map(str,self.integers))
     
     def count(self):
@@ -32,7 +32,7 @@ class RandomIntList(List):
 
 if __name__ == "__main__":
     randlist = RandomIntList(12)
-    print(randlist.show())
+    print(randlist)
     print(randlist.count())
     print(randlist.totalSum())
     print(randlist.average())
