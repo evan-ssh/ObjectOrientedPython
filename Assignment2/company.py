@@ -4,6 +4,11 @@ class Person():
         Self.lastName = lastName
         Self.email = email
 
-    def FullnName(self):
+    def FullName(self):
         return f"First Name: {self.firstName}\nLast Name: {self.lastName}\nEmail: {self.email}"
     
+
+class Employee(Person):
+    def __init__(self,firstName, lastName, email, ssn):
+        Person.__init__(self,firstName,lastName,email)
+        self.ssn = ssn
