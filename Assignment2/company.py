@@ -16,4 +16,10 @@ class Employee(Person):
     def FullName(self):
         return f"Name: {self.firstName}\nEmail: {self.email}\nSSN: {self.ssn}"
     
+class Customer(Person):
+    def __init__(self, firstName, lastName, email,cust_id):
+        Person.__init__(self,firstName,lastName,email)
+        self.cust_id = cust_id
+    def FullName(self):
+        return f"Name: {self.firstName}\n Email: {self.email}\n Customer ID: {self.cust_id}"
     
