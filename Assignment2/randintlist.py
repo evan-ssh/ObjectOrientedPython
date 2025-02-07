@@ -18,14 +18,21 @@ class RandomIntList(List):
     def count(self):
         return len(self.integers)
     
-    def total(self):
+    def totalSum(self):
         total = 0
         for i in self.integers:
             total += i
         return(total)
 
+    def average(self):
+        total = 0
+        for i in self.integers:
+            total += i
+        return (total/len(self.integers))
 
-randlist = RandomIntList(5)
+
+randlist = RandomIntList(12)
 print(randlist.show())
 print(randlist.count())
-print(randlist.total())
+print(randlist.totalSum())
+print(randlist.average())
