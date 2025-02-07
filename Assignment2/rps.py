@@ -1,3 +1,4 @@
+import random
 class Player():
     def __init__(self,name,hand):
         self.name = name
@@ -14,3 +15,7 @@ class Lisa(Player):
     def __init__(self):
         Player.__init__(self,"Lisa","")
         self.generateRoshambo()
+    
+    def generateRoshambo(self):
+        ListOfHands = ["rock","paper","scissors"]
+        self.hand = random.choice(ListOfHands)
