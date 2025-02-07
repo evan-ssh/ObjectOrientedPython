@@ -3,3 +3,7 @@ class Person():
         Self.firstName = firstName
         Self.lastName = lastName
         Self.email = email
+
+    def FullnName(self):
+        return f"First Name: {self.firstName}\nLast Name: {self.lastName}\nEmail: {self.email}"
+    
