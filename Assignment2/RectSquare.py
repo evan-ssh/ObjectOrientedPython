@@ -15,3 +15,7 @@ class Rectangle:
                 print('*' * self.width)
             else:
                 print('*' + (' ' * (self.width-2)) + '*')
+
+class Square(Rectangle):
+    def __ini__(self,length):
+        Rectangle.__init__(self,length,length)
