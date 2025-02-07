@@ -19,3 +19,4 @@ class Rectangle:
 class Square(Rectangle):
     def __ini__(self,length):
         Rectangle.__init__(self,length,length)
+
