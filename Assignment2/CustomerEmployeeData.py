@@ -1,6 +1,6 @@
 from company import Employee,Customer
 def main():
-     while True:
+    while True:
         print("\nCustomer/Employee Data Entry")
         data_entry = input("\nCustomer or Employee? (c/e):")
         if data_entry[0] == "c":
@@ -31,8 +31,6 @@ def main():
                 break
         else:
             print("Choose Customer or Employee")
-
-
-
+            
 if __name__ == "__main__":
     main()
