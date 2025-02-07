@@ -9,14 +9,16 @@ class Rectangle:
     def calcArea(self):
         return self.height * self.width 
     
-    def displayShape(self):
+    def __str__(self):
+        strValue = ""
         for row in range(self.height):
             for col in range(self.width):
                 if row == 0 or row == self.height - 1 or col == 0 or col == self.width - 1:
-                    print('*', end=" ")
+                    strValue += "* "
                 else:
-                    print(' ', end=" ")
-            print()
+                    strValue += "  "
+            strValue += "\n"
+        return strValue
 class Square(Rectangle):
     def __init__(self,length):
         Rectangle.__init__(self,length,length)
@@ -28,10 +30,10 @@ if __name__ == "__main__":
     print(f"Width: {r.width}")
     print(f"Perimeter: {r.calcPerimeter()}")
     print(f"Area: {r.calcArea()}")
-    r.displayShape()
+    print(r)
 
     s = Square(5)
     print(f"Length: {s.height}")
     print(f"Perimeter: {s.calcPerimeter()}")
     print(f"Area: {s.calcArea()}")
-    s.displayShape()
+    print(s)
