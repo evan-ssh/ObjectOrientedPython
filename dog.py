@@ -20,7 +20,7 @@ class Dog:# created a class called dog this is a bluprint for the methods belong
         return self.age
     def set_age(self,age):
         self.age = age
-    def bark(self):# aa method is any function defined inside the class
+    def bark(self):# a method is any function defined inside the class
         print("BARK")
     def add_one(self,x):
         return x+1
