@@ -12,3 +12,8 @@ class Employee(Person):
     def __init__(self,firstName, lastName, email, ssn):
         Person.__init__(self,firstName,lastName,email)
         self.ssn = ssn
+    
+    def FullName(self):
+        return f"Name: {self.firstName}\nEmail: {self.email}\nSSN: {self.ssn}"
+    
+    
