@@ -3,7 +3,9 @@ class Player():
         self.name = name
         self.hand = hand
 
+    def generateRoshambo(self):
+        self.hand = "rock"
 class Bart(Player):
     def  __init__(self):
         Player.__init__(self,"Bart","")
-        
+        self.generateRoshambo()
