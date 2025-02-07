@@ -30,9 +30,9 @@ class RandomIntList(List):
             total += i
         return (total/len(self.integers))
 
-
-randlist = RandomIntList(12)
-print(randlist.show())
-print(randlist.count())
-print(randlist.totalSum())
-print(randlist.average())
+if __name__ == "__main__":
+    randlist = RandomIntList(12)
+    print(randlist.show())
+    print(randlist.count())
+    print(randlist.totalSum())
+    print(randlist.average())
