@@ -17,7 +17,15 @@ class RandomIntList(List):
     
     def count(self):
         return len(self.integers)
+    
+    def total(self):
+        total = 0
+        for i in self.integers:
+            total += i
+        return(total)
+
 
 randlist = RandomIntList(5)
 print(randlist.show())
 print(randlist.count())
+print(randlist.total())
