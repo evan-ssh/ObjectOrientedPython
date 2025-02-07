@@ -3,20 +3,35 @@ class Rectangle:
         self.height = height
         self.width = width
 
-    def calculate_perimeter(self):
+    def calcPerimeter(self):
         return (self.height * 2) + (self.width * 2)
     
-    def calculate_area(self):
+    def calcArea(self):
         return self.height * self.width 
     
-    def display_rectangle(self):
+    def displayShape(self):
         for row in range(self.height):
-            if row == 0 or row == self.height - 1:
-                print('*' * self.width)
-            else:
-                print('*' + (' ' * (self.width-2)) + '*')
-
+            for col in range(self.width):
+                if row == 0 or row == self.height - 1 or col == 0 or col == self.width - 1:
+                    print('*', end=" ")
+                else:
+                    print(' ', end=" ")
+            print()
 class Square(Rectangle):
-    def __ini__(self,length):
+    def __init__(self,length):
         Rectangle.__init__(self,length,length)
+    
 
+if __name__ == "__main__": 
+    r = Rectangle(5,10)
+    print(f"Height: {r.height}")
+    print(f"Width: {r.width}")
+    print(f"Perimeter: {r.calcPerimeter()}")
+    print(f"Area: {r.calcArea()}")
+    r.displayShape()
+
+    s = Square(5)
+    print(f"Length: {s.height}")
+    print(f"Perimeter: {s.calcPerimeter()}")
+    print(f"Area: {s.calcArea()}")
+    s.displayShape()
