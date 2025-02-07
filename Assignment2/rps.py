@@ -7,6 +7,9 @@ class Player():
     def generateRoshambo(self):
         self.hand = "rock"
 
+    def __str__(self):
+        return self.name
+
     def play(self,opponent):
         if self.hand == opponent.hand:
             return None
@@ -29,4 +32,13 @@ class Lisa(Player):
         ListOfHands = ["rock","paper","scissors"]
         self.hand = random.choice(ListOfHands)
 
-    
+if __name__ == "__main__":
+    player = Player("player", "paper")
+    bart = Bart()
+    print(f"Player Hand: {player.hand}")
+    print(f"Barts Hand: {bart.hand}")
+    winCase = player.play(bart)
+    if winCase == None:
+        print("Its a tie")
+    else:
+        print(f"{winCase} Wins With Hand {winCase.hand}")
