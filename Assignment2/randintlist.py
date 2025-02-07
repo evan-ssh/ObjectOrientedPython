@@ -14,6 +14,10 @@ class RandomIntList(List):
     
     def show(self):
         return ','.join(map(str,self.integers))
+    
+    def count(self):
+        return len(self.integers)
 
 randlist = RandomIntList(5)
 print(randlist.show())
+print(randlist.count())
