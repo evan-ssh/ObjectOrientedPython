@@ -2,9 +2,11 @@ from rps2 import Player,Bart,Lisa
 def main():
     print("Roshambo Game")
     playerName = input("\nEnter your name: ")
+    player = Player(playerName, "")
     while True:
         chooseOpponent = input("\nWould you like to play against Bart or Lisa? ").lower()
         if chooseOpponent[0] == "b":
+         while True:
             chooseHand = input("\nRock, Paper, or Scissors? (r/p/s):").lower()
             if chooseHand[0] == "r":
                 chooseHand = "rock"
@@ -16,7 +18,7 @@ def main():
                 print("Please choose rock, paper, or scissors")
                 continue
 
-            player = Player(playerName, chooseHand)
+            player.hand = chooseHand 
             bart = Bart()
             print(f"{player.name}: {player.hand}!")
             print(f"{bart.name} {bart.hand}!")
@@ -27,13 +29,15 @@ def main():
                 print(f"{player.name} wins!")
             else:
                 print(f"{bart.name} wins!")
-            playAgain = input("\nWould you like to play again? (y/n): ")
+            player.updateScore(winCase)
+            player.scoreBoard()
+            playAgain = input("\nWould you like to play bart again? (y/n): ")
             if playAgain.lower() != "y":
                 print("Thanks for playing!")
                 break
         elif chooseOpponent[0] == "l":
+         while True:
             chooseHand = input("Rock, Paper, or Scissors? (r/p/s):").lower()
-
             if chooseHand[0] == "r":
                 chooseHand = "rock"
             elif chooseHand[0] == "p":
@@ -43,7 +47,7 @@ def main():
             else:
                 print("Please choose rock, paper, or scissors")
                 continue
-            player = Player(playerName, chooseHand)
+            player.hand = chooseHand
             lisa = Lisa()
             print(f"{player.name}: {player.hand}")
             print(f"{lisa.name}: {lisa.hand}")
@@ -54,7 +58,9 @@ def main():
                 print(f"{player.name} wins!")
             else:
                 print(f"{lisa.name} wins!")
-            playAgain = input("Would you like to play again? (y/n): ")
+            player.updateScore(winCase)
+            player.scoreBoard()
+            playAgain = input("Would you like to play Lisa again? (y/n): ")
             if playAgain.lower() != "y":
                 print("Thanks for playing!")
                 break
