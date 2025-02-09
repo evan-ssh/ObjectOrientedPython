@@ -17,8 +17,18 @@ class Player():
             return self
         else:
             return opponent
+        
+    def updateScore(self,winCase):
+        if winCase == None:
+            self.score['ties'] += 1
+        elif winCase == self:
+            self.score['wins'] += 1
+        else:
+            self.score['losses'] += 1
+        
+
     def scoreBoard(self):
-        print(f"ScoreBoard\n WINS:{self.score["wins"]} LOSSES:{self.score["losses"]} TIES{self.score["ties"]}")
+        print(f"ScoreBoard\n WINS:{self.score['wins']} LOSSES:{self.score['losses']} TIES{self.score['ties']}")
     
 class Bart(Player):
     def  __init__(self):
@@ -52,7 +62,10 @@ if __name__ == "__main__":
         print(f"Player Hand: {player.hand}")
         print(f"Lisa's Hand: {lisa.hand}")
         winCase = player.play(lisa)
+        player.updateScore(winCase)
         if winCase == None:
             print("Its a tie")
+            player.scoreBoard()
         else:
             print(f"{winCase} Wins With {winCase.hand}")
+            player.scoreBoard()
