@@ -28,7 +28,7 @@ class Player():
         
 
     def scoreBoard(self):
-        print(f"ScoreBoard\n WINS:{self.score['wins']} LOSSES:{self.score['losses']} TIES{self.score['ties']}")
+        print(f"-=SCOREBOARD=-\nWINS:{self.score['wins']}\nLOSSES:{self.score['losses']}\nTIES{self.score['ties']}\n")
     
 class Bart(Player):
     def  __init__(self):
