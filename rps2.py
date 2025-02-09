@@ -44,8 +44,20 @@ class Lisa(Player):
         ListOfHands = ["rock","paper","scissors"]
         self.hand = random.choice(ListOfHands)
 
+class Elon(Player):
+    def __init__(self,playersHand):
+        Player.__init__(self,"Elon", "")
+        self.generateRoshambo(playersHand)
+    def generateRoshambo(self,playersHand):
+        if playersHand == "rock":
+            self.hand = "paper"
+        elif playersHand == "paper":
+            self.hand = "scissors"
+        elif playersHand == "scissors":
+            self.hand = "rock"
+
 if __name__ == "__main__":
-    opponent = input("Who Would You Like To Face For An Opponent Bart or Lisa?").lower()
+    opponent = input("Who Would You Like To Face For An Opponent Bart,Lisa or Elon?").lower()
     if opponent[0] == "b":    
         player = Player("player", "rock")
         bart = Bart()
@@ -62,6 +74,20 @@ if __name__ == "__main__":
         print(f"Player Hand: {player.hand}")
         print(f"Lisa's Hand: {lisa.hand}")
         winCase = player.play(lisa)
+        player.updateScore(winCase)
+        if winCase == None:
+            print("Its a tie")
+            player.scoreBoard()
+        else:
+            print(f"{winCase} Wins With {winCase.hand}")
+            player.scoreBoard()
+    elif opponent[0] == "e":
+        player = Player("player","rock")
+        playersHand = player.hand
+        elon = Elon(playersHand)
+        print(f"Player Hand: {player.hand}")
+        print(f"Elon's Hand: {elon.hand}")
+        winCase = player.play(elon)
         player.updateScore(winCase)
         if winCase == None:
             print("Its a tie")
