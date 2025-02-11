@@ -56,13 +56,12 @@ class Player:
             aces -= 1
         return value
     def showHand(self):
-        for card in self.hand:
-            print(card)
+        return f", ".join(map(str,self.hand))
 
 if __name__ == "__main__": 
     deck = Deck()
     player = Player()
-    for _ in range(1):
+    for _ in range(3):
         player.add_hand(deck)
     
     print(player.showHand())
