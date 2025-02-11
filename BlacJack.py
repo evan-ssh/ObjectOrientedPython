@@ -14,6 +14,7 @@ class Deck:
 
     def __init__(self):
         self.cards = []
+        self.create_deck()
         self.shuffle_deck()
     
     def create_deck(self):
@@ -40,8 +41,8 @@ class Player:
     def __init__(self):
         self.hand = []
     
-    def add_hand(self,card):
-        self.hand.append(card)
+    def add_hand(self,deck):
+        self.hand.append(deck.deal_card())
 
     def hand_value(self):
         value = 0
@@ -54,3 +55,15 @@ class Player:
             value -= 10
             aces -= 1
         return value
+    def showHand(self):
+        for card in self.hand:
+            print(card)
+
+if __name__ == "__main__": 
+    deck = Deck()
+    player = Player()
+    for _ in range(1):
+        player.add_hand(deck)
+    
+    print(player.showHand())
+    
