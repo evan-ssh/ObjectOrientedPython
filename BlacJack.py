@@ -14,10 +14,10 @@ class Deck:
 
     def __init__(self):
         self.cards = []
-        self.create_deck()
-        self.shuffle_deck()
+        self.createDeck()
+        self.shuffleDeck()
     
-    def create_deck(self):
+    def createDeck(self):
         for face in self.values:
             for suit in self.suits:
                 if face =="Ace":
@@ -31,20 +31,20 @@ class Deck:
                     is_ace = False
                 self.cards.append(Card(suit,face,value,is_ace))
         
-    def shuffle_deck(self):
+    def shuffleDeck(self):
         random.shuffle(self.cards)
     
-    def deal_card(self):
+    def dealCard(self):
         return self.cards.pop()
 
 class Player:
     def __init__(self):
         self.hand = []
     
-    def add_hand(self,deck):
+    def addHand(self,deck):
         self.hand.append(deck.deal_card())
 
-    def hand_value(self):
+    def handValue(self):
         value = 0
         aces = 0
         for card in self.hand:
@@ -57,6 +57,7 @@ class Player:
         return value
     def showHand(self):
         return f", ".join(map(str,self.hand))
+
 class Dealer(Player):
     def __init__(self):
         Player.__init__(self)
@@ -66,12 +67,15 @@ if __name__ == "__main__":
     deck = Deck()
     player = Player()
     dealer = Dealer()
-    for _ in range(3):
-        player.add_hand(deck)
-        dealer.add_hand(deck)
-    
+while True:
+    for _ in range(2): 
+        player.addHand(deck)
+        dealer.addHand(deck)
     print(player.showHand())
-    print(player.hand_value())
+    print(player.handValue())
     print(dealer.showHand())
-    print(dealer.hand_value())
+    print(dealer.handValue())
+    if player.handValue() > 21 or dealer.handValue > 21:
+        print("")
+    hitStand = input("would u like to hit or stand ")
     
