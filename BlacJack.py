@@ -5,8 +5,8 @@ class Card:
         self.face = face
         self.value = value
         self.is_ace = is_ace
-    def show_card(self):
-        return(f"{self.face} of {self.suit}")
+    def __str__(self):
+        return f"{self.face} of {self.suit}"
 
 class Deck:
     values = ["Ace","2","3","4","5","6","7","8","9","10","Jack","King","Queen"]
@@ -22,7 +22,7 @@ class Deck:
                 if face =="Ace":
                     value = 11
                     is_ace = True
-                elif face == "Jack" or "King" or "Queen":
+                elif face == "Jack" or face == "King" or face == "Queen":
                     value = 10
                     is_ace = False
                 else:
@@ -51,6 +51,6 @@ class Player:
             if card.is_ace:
                 aces += 1
         while value > 21 and aces:
-            value - 10
-            aces - 1
+            value -= 10
+            aces -= 1
         return value
