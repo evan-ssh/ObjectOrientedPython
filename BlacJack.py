@@ -51,18 +51,27 @@ class Player:
             value += card.value
             if card.is_ace:
                 aces += 1
-        while value > 21 and aces:
+        if value > 21 and aces:
             value -= 10
             aces -= 1
         return value
     def showHand(self):
         return f", ".join(map(str,self.hand))
+class Dealer(Player):
+    def __init__(self):
+        Player.__init__(self)
+    
 
 if __name__ == "__main__": 
     deck = Deck()
     player = Player()
+    dealer = Dealer()
     for _ in range(3):
         player.add_hand(deck)
+        dealer.add_hand(deck)
     
     print(player.showHand())
+    print(player.hand_value())
+    print(dealer.showHand())
+    print(dealer.hand_value())
     
