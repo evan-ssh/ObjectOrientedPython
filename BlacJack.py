@@ -40,9 +40,11 @@ class Deck:
 class Player:
     def __init__(self):
         self.hand = []
+        handval = 0
     
     def addHand(self,deck):
         self.hand.append(deck.deal_card())
+        self.handValue()
 
     def handValue(self):
         value = 0
@@ -54,7 +56,7 @@ class Player:
         if value > 21 and aces:
             value -= 10
             aces -= 1
-        return value
+        self.handval = value
     def showHand(self):
         return f", ".join(map(str,self.hand))
 
