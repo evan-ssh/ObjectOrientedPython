@@ -12,3 +12,10 @@ class Surgeon(Doctor):
         self.specialty = specialty
     def __str__(self):
         return f"Dr.{self.name} Salary: {self.salary} Specialty: {self.specialty}"
+    
+class Hospital:
+    def __init__(self):
+        self.doctors = []
+    def addDoc(self,doctor):
+        self.doctors.append(doctor)
+                 
