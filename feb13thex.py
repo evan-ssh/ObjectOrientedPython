@@ -18,4 +18,8 @@ class Hospital:
         self.doctors = []
     def addDoc(self,doctor):
         self.doctors.append(doctor)
+    def __iter__(self):
+        for doc in self.doctors:
+            yield doc
+        
                  
