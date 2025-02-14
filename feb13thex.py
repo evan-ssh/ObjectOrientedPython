@@ -5,3 +5,7 @@ class Doctor:
         self.salary = salary
     def __str__(self):
         return f"Dr.{self.name} Salary: {self.salary}"
+
+class Surgeon(Doctor):
+    def __init__(self,name,salary,specialty):
+        Doctor.__init__(self,name,salary)
