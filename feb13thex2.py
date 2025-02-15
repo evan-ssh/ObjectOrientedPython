@@ -19,6 +19,9 @@ class Collection:
 
     def highestValue(self):
         return max(self.games, key=lambda game: game.value)
+    
+    def lowestValue(self):
+        return min(self.games, key=lambda game: game.value)
     def __iter__(self):
         for game in self.games:
             yield game
@@ -39,5 +42,6 @@ for game in collection:
 # Total value of collection
 collection.calcValue()
 print(f"Most valuable game in collection - {collection.highestValue()}")
+print(f"Least valuable game in collection - {collection.lowestValue()}")
 
 
