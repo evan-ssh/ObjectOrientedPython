@@ -10,6 +10,13 @@ class Collection:
         self.games = []
     def addGame(self,game):
         self.games.append(game)
+
+    def calcValue(self):
+        total = 0
+        for game in collection:
+            total += game.value
+        print(f"Total Estimated value of collection: {total}")
+
     def __iter__(self):
         for game in self.games:
             yield game
@@ -27,3 +34,7 @@ collection.addGame(g4)
 print("Erics Epic Collection\n")
 for game in collection:
     print(game)
+# Total value of collection
+collection.calcValue()
+
+
