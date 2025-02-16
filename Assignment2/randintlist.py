@@ -32,6 +32,9 @@ class RandomIntList(List):
     
     def highestInt(self):
         return max(self.integers)
+    
+    def lowestInt(self):
+        return min(self.integers)
 
 if __name__ == "__main__":
     randlist = RandomIntList(12)
@@ -40,3 +43,4 @@ if __name__ == "__main__":
     print(randlist.totalSum())
     print(randlist.average())
     print(f"Highest int {randlist.highestInt()}")
+    print(f"Lowest int {randlist.lowestInt()}")
