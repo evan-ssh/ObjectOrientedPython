@@ -29,6 +29,9 @@ class RandomIntList(List):
         for i in self.integers:
             total += i
         return (total/len(self.integers))
+    
+    def highestInt(self):
+        return max(self.integers)
 
 if __name__ == "__main__":
     randlist = RandomIntList(12)
@@ -36,3 +39,4 @@ if __name__ == "__main__":
     print(randlist.count())
     print(randlist.totalSum())
     print(randlist.average())
+    print(f"Highest int {randlist.highestInt()}")

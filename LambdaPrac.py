@@ -21,3 +21,15 @@ nums = [3,4,5,6,7,8]
 
 cubed = my_map(lambda x: x**3, nums)#Lambda was passed to higher order function my map which was used to cube each number 
 print(f"Cubed Numbers = {cubed}")
+
+
+double = lambda x: x * 2
+add = lambda x,y: x+y
+max_value = lambda x,y: x if x > y else y
+min_value = lambda x,y: x if x < y else y
+full_name = lambda first, last: first + " " + last
+
+
+print(min_value(6,7))
+print(max_value(6,13))
+print(full_name("Squidward","Tentacles"))
