@@ -18,12 +18,13 @@ class Collection:
         print(f"Total Estimated value of collection: {total}")
 
     def highestValue(self):
-        highestVal = self.games[0]
+        gameValues = max([game.value for game in self.games])
+        highestGame = ''
         for game in self.games:
-            if game.value > highestVal.value:
-             highestVal = game
-        return highestVal
-
+            if game.value == gameValues:
+                highestGame = game
+        return highestGame
+        
 
     
     def lowestValue(self):
