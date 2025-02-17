@@ -28,7 +28,13 @@ class Collection:
 
     
     def lowestValue(self):
-        return min(self.games, key=lambda game: game.value)
+        gameValues = min([game.value for game in self.games])
+        lowestGame = ''
+        for game in self.games:
+            if game.value == gameValues:
+                lowestGame = game
+        return lowestGame
+
     def __iter__(self):
         for game in self.games:
             yield game
