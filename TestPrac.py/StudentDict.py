@@ -9,3 +9,6 @@ class Student:
     def delGrade(self,subject):
         if subject in self.grades:
             del self.grades[subject]
+    def updateGrade(self,subject,grade):
+        if subject in self.grades:
+            self.grades[subject] = grade
