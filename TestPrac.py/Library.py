@@ -10,7 +10,10 @@ class Book:
 
 class Library:
     def __init__(self):
-        bookCase = []
+        self.bookCase = []
     def addBook(self,book):
         self.bookCase.append(book)
-    
+    def removeBook(self,book):
+        for books in self.bookCase:
+            if books.title == book:
+                self.bookCase.remove(books)
