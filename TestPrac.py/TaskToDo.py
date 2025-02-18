@@ -17,6 +17,10 @@ class ToDoList:
 
     def addTask(self,task):
         self.tasks[task.id] = task
+        
+    def markTaskCompleted(self,task_id):
+        if task_id in self.tasks:
+            self.tasks[task_id].markDone()
 
          
     
