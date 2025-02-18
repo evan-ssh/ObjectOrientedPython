@@ -17,3 +17,11 @@ class Library:
         for books in self.bookCase:
             if books.title == book:
                 self.bookCase.remove(books)
+    def findBook(self,author):
+        for book in self.bookCase:
+            if book.author == author:
+                return book
+    def __iter__(self):
+        for book in self.bookCase   :
+            yield book
+
