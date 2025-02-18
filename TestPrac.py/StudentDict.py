@@ -13,6 +13,13 @@ class Student:
         if subject in self.grades:
             self.grades[subject] = grade
     def showGrade(self):
-        print(f"{self.name}")
+        print(f"{self.name}'s Grades")
         for subject,grade in self.grades.items():
-            print(f"Subject{subject} - Grade{grade}")
+            print(f"{subject} - Grade {grade}")
+
+if __name__ == "__main__":
+    student = Student("Eric")
+    student.addGrade("English",65)
+    student.addGrade("Math",75)
+    student.addGrade("Physics",85)
+    student.showGrade()
