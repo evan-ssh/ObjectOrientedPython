@@ -24,8 +24,6 @@ class Collection:
             if game.value == gameValues:
                 highestGame = game
         return highestGame
-        
-
     
     def lowestValue(self):
         gameValues = min([game.value for game in self.games])
@@ -34,6 +32,11 @@ class Collection:
             if game.value == gameValues:
                 lowestGame = game
         return lowestGame
+    
+    def displayName(self):
+        gameTitles = [game.title for game in self.games]
+
+        return ", ".join(gameTitles)
 
     def __iter__(self):
         for game in self.games:
@@ -54,6 +57,7 @@ for game in collection:
     print(game)
 # Total value of collection
 collection.calcValue()
+print(f"Titles -- {collection.displayName()}")
 print(f"Most valuable game in collection - {collection.highestValue()}")
 print(f"Least valuable game in collection - {collection.lowestValue()}")
 
