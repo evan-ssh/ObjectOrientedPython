@@ -6,3 +6,6 @@ class Student:
     def addGrade(self,subject,grade):
        self.grades[subject] = grade
 
+    def delGrade(self,subject):
+        if subject in self.grades:
+            del self.grades[subject]
