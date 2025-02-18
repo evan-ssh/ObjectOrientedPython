@@ -25,3 +25,16 @@ class Library:
         for book in self.bookCase   :
             yield book
 
+if __name__ == "__main__":
+    library = Library()
+    book1 = Book("The Great Gatsby", "F. Scott Fitzgerald", 1925)
+    book2 = Book("Moby Dick", "Herman Melville", 1851)
+    library.addBook(book1)
+    library.addBook(book2)
+    print("Current Books In Library")
+    for book in library:
+     print(book)
+    library.removeBook("Moby Dick")
+    print("Current Books In Library")
+    for book in library:
+     print(book)
