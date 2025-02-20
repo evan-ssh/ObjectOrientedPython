@@ -10,3 +10,9 @@ class ListManger:
             self.list.remove(item)
         else:
             print("Item not in list")
+    
+    def searchList(self,item):
+        if item in self.list:
+            return self.list.index(item)
+        else:
+            return "Item not in list"
