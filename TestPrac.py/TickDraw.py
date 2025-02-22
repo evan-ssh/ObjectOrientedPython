@@ -5,7 +5,7 @@ class DrawPrize:
         self.lowNum = lowNum
         self.highNum = highNum
         self.tickets = []
-        self.winningTicket = None
+        self.winningTicket = None #Setting to none allows for us to inititalize  without needing this
         self.userTicket = []
 
     def createTickets(self):

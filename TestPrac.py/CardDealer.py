@@ -4,13 +4,8 @@ class Card:
     def __init__(self,rank,suite):#Define the lists outside then init
         self.rank = rank
         self.suite = suite
-       
-    
-
     def __str__(self):
         return f"{self.rank} of {self.suite}"
-        
-
 
 class Deck:
     def __init__(self):
