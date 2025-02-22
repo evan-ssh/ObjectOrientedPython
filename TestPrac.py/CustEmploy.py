@@ -10,12 +10,12 @@ class Person:
 
 class Customer(Person):
     def __init__(self,firstName,lastName,email,customerNumber):
-        super().__init__(firstName,lastName,email)
+        Person().__init__(firstName,lastName,email)
         self.customerNumber = customerNumber
 
 class Employee(Person):
     def __init__(self,firstName,lastName,email,ssn):
-        super().__init__(firstName,lastName,email)
+        Employee().__init__(firstName,lastName,email)
         self.ssn = ssn
 
 while True:
