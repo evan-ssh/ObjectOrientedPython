@@ -32,3 +32,16 @@ def openFile():
             customers.append(customer)
     return customers
 
+def main():
+    custData = openFile()
+    while True:
+        searchID = (input("Enter customer id:"))
+        for customer in custData:
+            if customer.cust_id == searchID:
+                print(customer)
+                break
+        else:
+            print("Customer not found")
+            continue
+if __name__ == "__main__":
+    main()
