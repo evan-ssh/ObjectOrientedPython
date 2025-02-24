@@ -12,3 +12,7 @@ class Item:
     @property
     def price(self):
         return self.__price
+    
+class Store:
+    def __init__(self):
+        self.__items = []
