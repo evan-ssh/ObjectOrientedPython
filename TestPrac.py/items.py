@@ -26,8 +26,12 @@ class Store:
                 price = int(row[1])
                 self.__items.append(Item(item,price))
 
-    def listItems(self,name,quantity):
+    def listItems(self):
         print("Welcome to the dollar store")
+        for item in self.__items:
+            print(item.name)
+
+    def sellItems(self,name,quantity):
         for item in self.__items:
             if item.name == name:
                 return f"{quantity} {item.name}'s cost {item.price * quantity}" 
