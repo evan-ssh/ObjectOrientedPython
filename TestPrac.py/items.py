@@ -16,3 +16,13 @@ class Item:
 class Store:
     def __init__(self):
         self.__items = []
+
+    def loadItems(self):
+        filename = 'items.csv'
+        with open(filename) as file:
+            reader = csv.reader(file)
+            for row in reader:
+                item = row[0]
+                price = int(row[1])
+                self.__items.append(Item(item,price))
+
