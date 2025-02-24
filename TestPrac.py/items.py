@@ -37,4 +37,17 @@ class Store:
                 return f"{quantity} {item.name}'s cost {item.price * quantity}" 
         else:
             return f"Sorry we do not have {name}'s"
-    
+    def main():
+        store = Store()
+        store.loadItems()
+        while True:
+            store.listItems()
+            command = input("Would u like to purchase an item?")
+            if command != "y":
+                continue
+            name = input("Enter name of item: ")
+            quantity = int(input("How many would you like?: "))
+            sold = store.sellItems(name,quantity)
+            print(sold)
+    if __name__ == "__main__":
+        main()
