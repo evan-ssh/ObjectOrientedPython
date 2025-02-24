@@ -6,3 +6,9 @@ class Item:
     def __str__(self):
         return f"{self.__name} {self.__price}"
     
+    @property 
+    def name(self):
+        return self.__name
+    @property
+    def price(self):
+        return self.__price
