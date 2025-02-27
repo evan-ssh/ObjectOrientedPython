@@ -10,3 +10,11 @@ class Circle:
     @property
     def color(self):
         return self.__color
+    
+    @radius.setter
+    def setradius(self,newVal):
+        self.__radius = newVal
+    
+    @color.setter
+    def setcolor(self,newVal):
+        self.__color = newVal
