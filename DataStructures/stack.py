@@ -14,4 +14,18 @@ class Stack:
     def size(self):
         return len(self.stack)
     
+def main():
+    stack = Stack()
+    while True:
+        name = input("Enter a name")
+        if name == "%":
+            break
+        stack.push(name)
+        print(f"{name} was added to the stack")
+    for _ in range(stack.size()):
+        person = stack.pop()
+        print(person)
+    print("Stack finished")
     
+if __name__ == "__main__":
+    main()
