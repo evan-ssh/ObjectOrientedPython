@@ -15,3 +15,11 @@ class Donkey(Animal):
     
     def makeNoise(self):
         return "hee-haw"
+    
+class Goat(Animal):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+    
+    def makeNoise(self):
+        return "maaaa"
+    
