@@ -47,3 +47,29 @@ class Zoo:
     def __iter__(self):
         for animal in self.animals:
             yield animal
+
+def main():
+    a1 = Donkey("Donkey1","7")
+    a2 = Donkey("Donkey2","3")
+    a3 = Goat("Goat1","2")
+    a4 = Goat("Goat2","1")
+    a5 = HoneyBadger("HoneyBadger1","4")
+    a6 = HoneyBadger("HoneyBader2","8")
+
+
+    zoo = Zoo()
+    zoo.addAnimal(a1)
+    zoo.addAnimal(a2)
+    zoo.addAnimal(a3)
+    zoo.addAnimal(a4)
+    zoo.addAnimal(a5)
+    zoo.addAnimal(a6)
+
+    count = 0
+    for animal in zoo:
+        count += 1
+        print(animal)
+    print(f"{zoo}, {count} animals")
+if __name__ == "__main__":
+    main()
+
