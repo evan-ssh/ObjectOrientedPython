@@ -8,3 +8,10 @@ class Animal:
 
     def __str__(self):
         return "Can Feed:" + " " + str(self.canFeed()) + ", " + "Noise:" + " " + self.makeNoise() + " " + "String representation:" + " " + self.name + ", " "Age:"+ " " + self.age
+    
+class Donkey(Animal):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+    
+    def makeNoise(self):
+        return "hee-haw"
