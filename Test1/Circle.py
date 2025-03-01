@@ -21,3 +21,6 @@ class Circle:
 
     def getArea(self):
         return math.pi * self.__radius * self.__radius
+    
+    def getCircumference(self):
+        return 2 * math.pi * self.__radius
