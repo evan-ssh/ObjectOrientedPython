@@ -32,4 +32,18 @@ class HoneyBadger(Animal):
     
     def makeNoise(self):
         return "rattle-grunt"
-    
+
+class Zoo:
+    def __init__(self):
+        self.animals = []
+
+    def addAnimal(self,animal):
+        self.animals.append(animal)
+
+
+    def __str__(self):
+        return f"Eric's Zoo"
+
+    def __iter__(self):
+        for animal in self.animals:
+            yield animal
