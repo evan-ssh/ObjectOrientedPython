@@ -22,4 +22,14 @@ class Goat(Animal):
     
     def makeNoise(self):
         return "maaaa"
+
+class HoneyBadger(Animal):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+    
+    def canFeed(self):
+        return False
+    
+    def makeNoise(self):
+        return "rattle-grunt"
     
