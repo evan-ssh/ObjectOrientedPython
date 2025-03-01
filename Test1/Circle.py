@@ -1,6 +1,6 @@
 import math
 class Circle:
-    def __init__(self, radius, color):
+    def __init__(self, radius:float, color:str):
         self.__radius = radius
         self.__color = color
     
@@ -12,9 +12,12 @@ class Circle:
         return self.__color
     
     @radius.setter
-    def setradius(self,newVal):
+    def radius(self,newVal):
         self.__radius = newVal
     
     @color.setter
-    def setcolor(self,newVal):
+    def color(self,newVal):
         self.__color = newVal
+
+    def getArea(self):
+        return math.pi * self.__radius * self.__radius

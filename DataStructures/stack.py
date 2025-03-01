@@ -1,5 +1,6 @@
 #FILO First in Last Out
 
+#Simple stack
 class Stack:
     def __init__(self):
         self.stack = []
