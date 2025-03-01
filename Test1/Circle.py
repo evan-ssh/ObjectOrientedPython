@@ -24,3 +24,7 @@ class Circle:
     
     def getCircumference(self):
         return 2 * math.pi * self.__radius
+    
+    def __str__(self):
+        return f"radius: {self.__radius} color: {self.__color}"
+    
