@@ -28,3 +28,17 @@ class Circle:
     def __str__(self):
         return f"radius: {self.__radius} color: {self.__color}"
     
+def main():
+    while True:
+        radius = float(input("Enter the radius for your circle"))
+        color = input("Enter the color for the circle")
+        circle = Circle(radius,color)
+        print(f"Area is {circle.getArea()}")
+        print(f"Circumference is {circle.getCircumference()}")
+        print(circle)
+        go_again = input("Would u like to create another circle?")
+        if go_again != "y":
+            break
+
+if __name__ == "__main__":
+    main()
