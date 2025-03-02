@@ -17,14 +17,24 @@ class SinglyLinkedList:
                 current_node = current_node.next
             current_node.next = new_node
 
-    def printList(self):
+    def ShowList(self):
         current_node = self.head
         while current_node != None:
             print(current_node.data)
             current_node = current_node.next
-
-link_list = SinglyLinkedList()
-link_list.append("3")
-link_list.append("7")
-link_list.append("10")
-link_list.printList()
+def display():
+    print("1. Add Data")
+    print("2. Show Data")
+    print("3. Exit")
+def main():
+    link_list = SinglyLinkedList()
+    while True:
+        display()
+        command = int(input("Enter a command"))
+        if command == 1:
+            data = input("Enter your data")
+            link_list.append(data)
+        elif command == 2:
+            link_list.ShowList()
+if __name__ == "__main__":
+    main()
