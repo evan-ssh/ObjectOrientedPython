@@ -32,3 +32,6 @@ class Stack:
                 return self.pop(0)
             else:
                 return "Cannot remove from empty queue"
+        def __str__(self):
+            f"Queue {len(self.queue)}"
+            
