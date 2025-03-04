@@ -15,6 +15,9 @@ class Stack:
     def is_empty(self):
         if len(self.stack) == 0:
             return True
+    def peek(self):
+        if len(self.stack) != 0:
+            return self.stack[-1]
         
     class Queue:
         def __init__(self):
