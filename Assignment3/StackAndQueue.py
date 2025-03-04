@@ -18,6 +18,8 @@ class Stack:
     def peek(self):
         if len(self.stack) != 0:
             return self.stack[-1]
+    def __str__(self):
+        f"Stack {len(self.stack)}"
         
     class Queue:
         def __init__(self):
