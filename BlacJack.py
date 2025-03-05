@@ -36,15 +36,29 @@ class Deck:
     
     def dealCard(self):
         return self.cards.pop()
+    
+    def winCase(self,player,dealer):
+        if player.handval > 21:
+            return False
+        elif dealer.handval > 21:
+            return True
+        elif player.handval > dealer.handval:
+            return True
+        elif dealer.handval > player.handval:
+            return False
+        else:
+            return "Tie"
+        
 
 class Player:
     def __init__(self):
         self.hand = []
-        handval = 0
+        self.handval = 0
     
     def addHand(self,deck):
-        self.hand.append(deck.deal_card())
+        self.hand.append(deck.dealCard())
         self.handValue()
+    
 
     def handValue(self):
         value = 0
@@ -57,6 +71,7 @@ class Player:
             value -= 10
             aces -= 1
         self.handval = value
+
     def showHand(self):
         return f", ".join(map(str,self.hand))
 
@@ -65,19 +80,39 @@ class Dealer(Player):
         Player.__init__(self)
     
 
-if __name__ == "__main__": 
+def main():
     deck = Deck()
     player = Player()
     dealer = Dealer()
-while True:
-    for _ in range(2): 
-        player.addHand(deck)
-        dealer.addHand(deck)
-    print(player.showHand())
-    print(player.handValue())
-    print(dealer.showHand())
-    print(dealer.handValue())
-    if player.handValue() > 21 or dealer.handValue > 21:
-        print("")
-    hitStand = input("would u like to hit or stand ")
+    while True:
+        for _ in range(2): 
+            player.addHand(deck)
+            dealer.addHand(deck)
+        playerTurn = input("would u like to hit or stand ")
+        while playerTurn[0] == "h":
+            player.addHand(deck)
+           
+            print(f"Your hand: {player.showHand()}\nValue: {player.handval}")
+            print(player.handval)
+            if player.handval > 21:
+                break
+            playerTurn = input("would u like to hit or stand ")
+       
+        while dealer.handval < 17:
+            dealer.addHand(deck)
+
+        print(f"Dealer hand: {dealer.showHand()}\nValue: {dealer.handval}")
+
+        winCase = deck.winCase(player,dealer)
+        if winCase == True:
+            print("Player wins")
+        elif winCase == False:
+            print("Dealer wins")
+        else:
+            print(winCase)
     
+
+if __name__ == "__main__": 
+    main()
+
+        
