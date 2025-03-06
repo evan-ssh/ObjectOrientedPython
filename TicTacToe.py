@@ -6,7 +6,8 @@ class Board:
         print("_" * 7)
         for row in self.board:
             print("|" + "|".join(row) + "|") 
-        
+    def resetBoard(self):
+        self.board = [["_","_","_"],["_","_","_"],["_","_","_"]]
     def updateBoard(self,row,col,symbol):
         if self.board[row][col] == "_":
             self.board[row][col] = symbol
@@ -51,3 +52,69 @@ class Player():
                 print("Please enter a row and col 1-3")
     def __str__(self):
         return f"{self.name}"
+
+def main():
+    board = Board()
+    player1name = input("PLAYER 1 Enter your name: ")
+    player2name = input("PLAYER 2 Enter your name: ")
+    player1symbol = input("PLAYER 1 Enter your symbol: ")
+    player2symbol = input("PLAYER 2 Enter your symbol: ")
+    player1 = Player(player1name,player1symbol)
+    player2 = Player(player2name,player2symbol)
+    round = 0
+    while True:
+        if round % 2 == 0:
+            print(f"\nTicTacToe\nRound - {round+1}")
+            board.showBoard()
+            player1.makeMove(board)
+            winCase = board.checkWin()
+            if winCase == True:
+                print(f"{player1} Wins!")
+                go_again = input("Play Another Match?(y/n): ")
+                if go_again == "y":
+                    board.resetBoard()
+                    round = 0
+                    continue
+                else:
+                    print("Goodbye!")
+                    break   
+            elif winCase == board:
+                print("Tie!")
+                print(f"{player1} Wins!")
+                go_again = input("Play Another Match?(y/n): ")
+                if go_again == "y":
+                    board.resetBoard()
+                    round = 0
+                    continue
+                else:
+                    print("Goodbye!")
+                    break   
+            round += 1
+        elif round % 2 != 0:
+            print(f"\nTicTacToe\nRound - {round+1}")
+            board.showBoard()
+            player2.makeMove(board)
+            winCase = board.checkWin()
+            if winCase == True:
+                print(f"{player2} Wins!")
+                go_again = input("Play Another Match?(y/n): ")
+                if go_again == "y":
+                    board.resetBoard()
+                    round = 0
+                    continue
+                else:
+                    print("Goodbye!")
+                    break   
+            elif winCase == board:
+                print(f"Tie!")
+                go_again = input("Play Another Match?(y/n): ")
+                if go_again == "y":
+                    board.resetBoard()
+                    round = 0
+                    continue
+                else:
+                    print("Goodbye!")
+                    break   
+            else:
+                round += 1
+main()
