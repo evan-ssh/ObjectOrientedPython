@@ -11,6 +11,7 @@ class Stack:
     
     def reverse(self):
         self.stack.reverse()
+
     def length(self):
         return len(self.stack)
     
@@ -27,8 +28,10 @@ class Stack:
 
     def __str__(self):
         return f"Stack Items: {self.stack}"
-def main():
+    
 
+
+def main():
     command = int(input("Enter a command:"))
     if command == 1:
         stack = Stack()
