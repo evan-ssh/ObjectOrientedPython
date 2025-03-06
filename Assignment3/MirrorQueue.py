@@ -12,10 +12,6 @@ class Queue:
             return self.queue.pop(0)
         else:                
             return "Cannot remove from empty queue"
-    
-    
-           
-
     def length(self):
         return len(self.queue)
     def __str__(self):
