@@ -10,5 +10,6 @@ class Lottery:
     def display(self):
         print(self.winningNums)
         print(self.randomNums)
+    
 lottery = Lottery()
 lottery.display()
