@@ -28,3 +28,26 @@ class Board:
            self.board[0][2] == self.board[1][1] == self.board[2][0] != "_":
             return True
         return False
+
+class Player():
+    def __init__(self,name,symbol):
+        self.name = name
+        self.symbol = symbol
+    def makeMove(self,board):
+        while True:
+            print(f"{self.name} it is your turn!")
+            try:
+                row = int(input("row:")) - 1
+                col = int(input("col: ")) - 1
+                if row < 0 or row > 2 or col < 0 or col > 2:
+                    print("Please enter a row and col 1-3")
+                    continue
+                if board.updateBoard(row,col,self.symbol):
+                    board.showBoard()
+                    break
+                else:
+                    print("That Space Is Taken!")
+            except ValueError:
+                print("Please enter a row and col 1-3")
+    def __str__(self):
+        return f"{self.name}"
