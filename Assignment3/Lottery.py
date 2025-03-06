@@ -1,15 +1,28 @@
 import random
-class Lottery:
-    def __init__(self):
-        self.winningNums = {9,20,27,35,37,43}
-        self.randomNums = set()
-        for _ in range(6):
-            i = random.randint(1,49)
-            if i not in self.randomNums:
-                self.randomNums.add(i)
-    def display(self):
-        print(self.winningNums)
-        print(self.randomNums)
+winningNums = {9,20,27,35,37,43}
+randomNums = set()
+while len(randomNums) < 6:
+    i = random.randint(1,49)
+    if i not in randomNums:
+        randomNums.add(i)
+
+def winner(winningNums,randomNums):
+    winner = winningNums.intersection(randomNums)
+    matchNums = len(winner)
+    if matchNums < 2:
+        return
+    elif matchNums == 2:
+        return "Congratulations 2 numbers matched and you won a free play"
+    elif matchNums == 3:
+        return "Congratulations u won $10"
+    elif matchNums == 4:
+        return "Congratulations u won $90.50"
+    elif matchNums == 5:
+        return "Congratulations you won $5000"
+    elif matchNums == 6:
+        return "Congratiulations you hit the JACKPOT $13000000"
     
-lottery = Lottery()
-lottery.display()
+
+        
+
+    
