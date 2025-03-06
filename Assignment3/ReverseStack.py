@@ -30,7 +30,8 @@ class Stack:
         return f"Stack Items: {self.stack}"
     
 
-
+def reverse(stack):
+    stack.stack.reverse()
 def main():
     command = int(input("Enter a command:"))
     if command == 1:
@@ -45,6 +46,6 @@ def main():
         stack.push(i3)
         print(f"{i3} was added to stack")
         print(stack)
-        stack.reverse()
+        reverse(stack)
         print(stack)
 main()
