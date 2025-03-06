@@ -35,13 +35,13 @@ class Queue:
 
     def deque(self):
         if len(self.queue) != 0:
-            return self.pop()
+            return self.queue.pop()
         else:                
             return "Cannot remove from empty queue"
     
     def peek(self):
         if len(self.queue) != 0:
-            return self.pop()
+            return self.queue.pop(0)
         else:                
             return "Cannot remove from empty queue"
 
@@ -86,11 +86,11 @@ def main():
         print(f"{i2} was added to the queue")
         queue.enqueue(i3)
         print(f"{i3} was added to the queue")
-        print(f"There are {queue.length} items in queue")
-        dequeItem = queue.deque(i1)
-        print(f"{dequeItem} was returned from the front of the queue")
-        print
-
+        print(f"There are {queue.length()} items in queue")
+        peekItem = queue.peek()
+        print(f"{peekItem} was returned from the front of the queue")
+        dequeueItem = queue.deque()
+        print(f"{dequeueItem} was returned from the end of the queue")
 if __name__ == "__main__":
     main()
             
