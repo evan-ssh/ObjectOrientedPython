@@ -18,6 +18,10 @@ class Stack:
     def peek(self):
         if len(self.stack) != 0:
             return self.stack[-1]
+        
+    def clear(self):
+        self.stack = []
+        
     def __str__(self):
         f"Stack {len(self.stack)}"
         
