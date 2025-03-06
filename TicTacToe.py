@@ -5,4 +5,11 @@ class Board:
     def showBoard(self):
         print("_" * 7)
         for row in self.board:
-            print("|" + "|".join(row) + "|")  
+            print("|" + "|".join(row) + "|") 
+        
+    def updateBoard(self,row,col,symbol):
+        if self.board[row][col] == "_":
+            self.board[row][col] = symbol
+            return True
+        else:
+            return False
