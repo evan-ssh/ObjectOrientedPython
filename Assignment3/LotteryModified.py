@@ -12,6 +12,7 @@ def generateTicket():
         if i not in randomNums:
             randomNums.add(i)
     return randomNums
+
 def main():
     while True:
         winningNums = {9,20,27,35,37,43}
@@ -39,6 +40,7 @@ def main():
             elif matchNums == 6:
                 print("Congratulations all numbers MATCHED you hit the JACKPOT $13000000")
                 totalwon += 13000000
+                
         overallEarnings = totalwon - totallost
         print(f"You bought ${tickets * 2} worth of tickets")
         print(f"Total Won: {totalwon}")
@@ -47,6 +49,7 @@ def main():
         go_again = input("Would u like to buy more tickets?")
         if go_again != "y":
             break
+
 if __name__ == "__main__":
     main()
 

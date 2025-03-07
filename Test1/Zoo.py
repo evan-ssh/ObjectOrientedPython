@@ -42,7 +42,7 @@ class Zoo:
 
 
     def __str__(self):
-        return f"Eric's Zoo"
+        return f"Eric's Zoo Count: {len(self.animals)}"
 
     def __iter__(self):
         for animal in self.animals:
@@ -64,12 +64,8 @@ def main():
     zoo.addAnimal(a4)
     zoo.addAnimal(a5)
     zoo.addAnimal(a6)
-
-    count = 0
-    for animal in zoo:
-        count += 1
-        print(animal)
-    print(f"{zoo}, {count} animals")
+    
+    print(f"{a1}\n\n{a2}\n\n{a3}\n\n{a4}\n\n{a5}\n\n{a6}\n\n{zoo}")
 if __name__ == "__main__":
     main()
 
