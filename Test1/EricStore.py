@@ -33,3 +33,10 @@ class ShoppingCart:
                 return f"{productName} was removed from your cart"
             else:
                 return f"{productName} was not found in your cart"
+            
+
+    def totalCart(self):
+        total = 0
+        for item in self.__cart:
+            total += item.price * item.quantity
+        return total
