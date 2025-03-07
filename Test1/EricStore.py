@@ -16,4 +16,5 @@ class Item:
     def price(self):
         return self.__price
     
-    
+    def __str__(self):
+        return f"Name: {self.__name} Quantity: {self.__quantity} Price: {self.__price}"
