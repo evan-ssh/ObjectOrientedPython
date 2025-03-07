@@ -34,9 +34,42 @@ class ShoppingCart:
             else:
                 return f"{productName} was not found in your cart"
             
-
-    def totalCart(self):
+    def amountCart(self):
+        return len(self.__cart)
+    
+    def calculateTotal(self):
         total = 0
         for item in self.__cart:
             total += item.price * item.quantity
         return total
+def displayMenu():
+    print("1. Add Item to Cart")
+    print("2. Remove an item")
+    print("3. Check out")
+
+def main():
+    displayMenu()
+    store = ShoppingCart()
+    while True:
+        command = int(input("Enter a command 1-3"))
+        if command == 1:
+            productName = input("Enter the product name")
+            quantity = int(input("Enter the Product Quantity"))
+            price = int(input("Enter the product price"))
+            item = Item(productName,quantity,price)
+            store.addItem(item)
+        elif command == 2:
+            if store.amountCart() == 0:
+                print("Cannot remove from empty cart")
+            else:
+                productname = input("Enter the name of the product to remove")
+                productRemoved = store.removeItem(productname)
+                print(productRemoved)
+        elif command == 3:
+            if store.amountCart() == 0:
+                print("Add some items to your cart")
+            else:
+                print(f"You have purchased ${store.calculateTotal()} in items")
+
+if __name__ == "__main__":
+   main()
