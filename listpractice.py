@@ -23,7 +23,16 @@
 #print(factors)
 
 #Elements in common between two lists
-fruits = ["apple","bannana","kiwi"]
-fruits2 = ["grape","watermelon","kiwi"]
-intersectFruits = [fruit for fruit in fruits if fruit in fruits2]
-print(intersectFruits)
+#fruits = ["apple","bannana","kiwi"]
+#fruits2 = ["grape","watermelon","kiwi"]
+#intersectFruits = [fruit for fruit in fruits if fruit in fruits2]
+#print(intersectFruits)
+
+#Find the First Occurrence of a Specific Value and return the index
+
+numbers = [1,2,3,4,5,6]
+number = 3
+for i, value in enumerate(numbers,number):
+    if value == number:
+        print(f"{number} is at index {i}")
+print("Number not found")
