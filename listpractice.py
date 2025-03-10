@@ -14,3 +14,11 @@ for i in nested_list:
     flatten_list.extend(i)
 print(flatten_list)
 #Find all divisors of a number (n)
+
+n = 5
+factors = []
+for i in range(1, n+1):
+    if n % i == 0:
+        factors.append(i)
+print(factors)
+        
