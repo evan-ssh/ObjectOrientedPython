@@ -16,6 +16,7 @@ class Stack:
         if len(self.stack) == 0:
             return True
         return False
+    
     def peek(self):
         if len(self.stack) != 0:
             return self.stack[-1]
@@ -33,15 +34,15 @@ class Queue:
     def enqueue(self, item):
         self.queue.append(item)
 
-    def deque(self):
+    def dequeue(self):
         if len(self.queue) != 0:
-            return self.queue.pop()
+            return self.queue.pop(0)
         else:                
             return "Cannot remove from empty queue"
     
     def peek(self):
         if len(self.queue) != 0:
-            return self.queue.pop(0)
+            return self.queue[0]
         else:                
             return "Cannot remove from empty queue"
 
@@ -89,7 +90,7 @@ def main():
         print(f"There are {queue.length()} items in queue")
         peekItem = queue.peek()
         print(f"{peekItem} was returned from the front of the queue")
-        dequeueItem = queue.deque()
+        dequeueItem = queue.dequeue()
         print(f"{dequeueItem} was returned from the end of the queue")
 if __name__ == "__main__":
     main()
