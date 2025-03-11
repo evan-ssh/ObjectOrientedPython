@@ -44,7 +44,7 @@ class Queue:
         if len(self.queue) != 0:
             return self.queue[0]
         else:                
-            return "Cannot remove from empty queue"
+            return "Cannot return from empty queue"
 
     def length(self):
         return len(self.queue)
@@ -92,6 +92,7 @@ def main():
         print(f"{peekItem} was returned from the front of the queue")
         dequeueItem = queue.dequeue()
         print(f"{dequeueItem} was returned from the end of the queue")
+        
 if __name__ == "__main__":
     main()
             
