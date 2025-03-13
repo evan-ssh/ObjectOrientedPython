@@ -1,5 +1,5 @@
 import pygame
-import neat
+import random
 import time
 import os
 WIN_WIDTH = 600
@@ -85,6 +85,15 @@ class Pipe:
 
         self.passed = False
         self.set_height()
+
+    def set_height(self):
+        self.height = random.randrange(40, 450)
+        self.top = self.height - self.PIPE_TOP.get_height()
+        self.bottom = self.height + self.GAP
+
+    def move(self):
+        self.x -= self.VAL
+
 def draw_window(win,bird):
     win.blit(BG_IMG, (0,0))
     bird.draw()
