@@ -9,6 +9,7 @@ BIRD_IMGS = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs_b286d
 PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs_b286d95d6d","pipe.png")))
 BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs_b286d95d6d","base.png")))
 BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs_b286d95d6d","bg.png")))
+STAT_FONT = pygame.font.SysFont("comicsans", 50)
 
 class Bird:
     IMGS = BIRD_IMGS
@@ -135,21 +136,38 @@ class Base:
     def draw(self,win):
         win.blit(self.IMG, (self.x1 , self.y))
         win.blit(self.IMG, (self.x2 , self.y))
-        
-def draw_window(win,bird):
-    win.blit(BG_IMG, (0,0))
-    bird.draw()
+
+def draw_window(win,bird,pipes,base,score):
+    for i in range(0, WIN_WIDTH, BG_IMG.get_width()):
+        win.blit(BG_IMG, (i, 0))
+    
+    for pipe in pipes:
+        pipe.draw(win)
+    
+    text = STAT_FONT.render("Score: " + str(score), 1, (255,255,255))
+    win.blit(text,(text.get_width(), 5))
+    base.draw(win)
+    bird.draw(win)
     pygame.display.update()
 def main():
-    bird = Bird(200,200)
+    bird = Bird(230,350)
+    base = Base(730)
+    pipes = [Pipe(600)]
     win = pygame.display.set_mode(WIN_WIDTH,WIN_HEIGHT)
     clock = pygame.time.Clock()
     run = True
+    score = 0
     while run:
         clock.tick(30)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    bird.jump()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    bird.jump()
         draw_window(win,bird)
     pygame.quit()
     quit()
