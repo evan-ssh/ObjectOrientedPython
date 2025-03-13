@@ -111,6 +111,17 @@ class Pipe:
         if t_point or b_point:
             return True
         return False
+    
+class Base:
+    VEL = 5
+    WIDTH = BASE_IMG.get_width()
+    IMG = BASE_IMG
+
+    def __init__(self,y):
+        self.y = y
+        self.x1 = 0
+        self.x2 = self.WIDTH
+
 def draw_window(win,bird):
     win.blit(BG_IMG, (0,0))
     bird.draw()
