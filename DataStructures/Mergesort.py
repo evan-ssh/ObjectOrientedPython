@@ -2,7 +2,9 @@ leftList = [1,2,3,2]
 rightList = [2,4,6]
 
 
-def mergeSort(leftList,rightList):
+
+
+def merge(leftList,rightList):
     leftindex = 0
     rightindex = 0
     mergeList = []
@@ -24,4 +26,18 @@ def mergeSort(leftList,rightList):
 
     return mergeList
 
-print(mergeSort(leftList,rightList))
+def mergeSort(mergedList):
+    if len(mergedList) <= 1:
+        return mergedList
+
+    mid = len(mergedList) // 2
+    leftHalf = mergedList[:mid]
+    rightHalf = mergedList[mid:]
+
+    leftSort = mergeSort(leftHalf)
+    rightSort = mergeSort(rightHalf)
+
+    return merge(leftSort,rightSort)
+
+mergedList = merge(leftList,rightList)
+print(mergeSort(mergedList))
