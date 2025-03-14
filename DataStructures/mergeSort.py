@@ -16,7 +16,13 @@ def merge(leftList,rightList):
     return mergeList
 
 
-def mergeSort(leftList,rightList):
-    pass
+def mergeSort(mergedList):
+    if len(mergedList) <= 1:
+        return mergedList
+    mid = len(mergedList) // 2
+    leftHalf = mergeSort(mergedList[:mid])
+    rightHalf = mergeSort(mergedList[mid:])
+    return merge(leftHalf,rightHalf)
 
 mergedList = merge(leftList,rightList)
+print(mergeSort(mergedList))
