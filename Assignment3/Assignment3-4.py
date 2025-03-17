@@ -18,14 +18,22 @@ def winner(winningNums,randomNums):
     else:
         return "Sorry no win"
     
-def main():
-    winningNums = {9,20,27,35,37,43}
+def generateTicket():
     randomNums = set()
     while len(randomNums) < 6:
         i = random.randint(1,49)
         if i not in randomNums:
             randomNums.add(i)
-    print(winner(winningNums,randomNums)) 
+    return randomNums
+def main():
+    while True:
+        winningNums = {9,20,27,35,37,43}
+        buyTicket =  input("Would u like to play the lotto? (y/n)")
+        if buyTicket != "y":
+            print("Thanks for playing!")
+            break
+        randomNums = generateTicket()
+        print(winner(winningNums,randomNums)) 
 
 if __name__ == "__main__":
     main()

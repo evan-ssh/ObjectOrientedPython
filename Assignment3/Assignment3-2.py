@@ -9,8 +9,14 @@ class Stack:
         if len(self.stack) != 0:
             return self.stack.pop()
     
-    def reverse(self):
-        self.stack.reverse()
+    def reverse(self,numbers):
+        for num in numbers:
+            self.push(num)
+
+        reverseStack = []
+        for _ in range(len(self.stack)):
+            reverseStack.append(self.pop())
+        self.stack = reverseStack
 
     def length(self):
         return len(self.stack)
@@ -19,6 +25,7 @@ class Stack:
         if len(self.stack) == 0:
             return True
         return False
+    
     def peek(self):
         if len(self.stack) != 0:
             return self.stack[-1]
@@ -29,23 +36,11 @@ class Stack:
     def __str__(self):
         return f"Stack Items: {self.stack}"
     
-
-def reverse(stack):
-    stack.stack.reverse()
 def main():
-    command = int(input("Enter a command:"))
-    if command == 1:
-        stack = Stack()
-        i1 = "a"
-        i2 = "b"
-        i3 = "c"
-        stack.push(i1)
-        print(f"{i1} was added to stack")
-        stack.push(i2)
-        print(f"{i2} was added to stack")
-        stack.push(i3)
-        print(f"{i3} was added to stack")
-        print(stack)
-        reverse(stack)
-        print(stack)
-main()
+    stack = Stack()
+    numbers = [1,2,3,4,5]
+    print(f"Numbers: {numbers}")
+    stack.reverse(numbers)
+    print(stack)
+if __name__ == "__main__":
+    main()

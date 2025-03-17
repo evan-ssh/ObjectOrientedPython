@@ -12,21 +12,21 @@ class Queue:
             return self.queue.pop(0)
         else:                
             return "Cannot remove from empty queue"
+        
     def length(self):
         return len(self.queue)
+    
+    def mirror(queue):
+        reversedList = []
+        for char in queue.queue:
+            reversedList.append(char)
+        reversedList.reverse()
+        for char in reversedList:
+            queue.enqueue(char)
+
     def __str__(self):
         return f"Queue {self.queue}"
-
-
-def mirror(queue):
-    reversedList = []
-    for char in queue.queue:
-        reversedList.append(char)
-    reversedList.reverse()
-    for char in reversedList:
-        queue.enqueue(char)
     
-
 def main():
     queue = Queue()
     i1 = "a"
@@ -39,6 +39,7 @@ def main():
     queue.enqueue(i3)
     print(f"{i3} was added to the queue")
     print(queue)
-    mirror(queue)
+    queue.mirror()
     print(queue)
-main()
+if __name__ == "__main__":
+    main()
