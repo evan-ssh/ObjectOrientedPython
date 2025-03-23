@@ -12,11 +12,6 @@ def openFile(filename):
             testInfo.append((totaltime,range))
     return testInfo
 
-def writeFile(numberRange,totalTime):
-    with open(filename, mode='a', newline='') as file:
-        writer = csv.writer(file)
-        
-        writer.writerow([numberRange,totalTime])
 def insertionSort(arr):
     for i in range(1, len(arr)):
         j = i
@@ -26,14 +21,13 @@ def insertionSort(arr):
 
 def main():
     arr = []
-    numberRange = 2000
-    for _ in range(numberRange):
+    for _ in range(2000):
         arr.append(random.randint(1,100))
     startTime = time.time()
     insertionSort(arr)
     endTime = time.time()
     totalTime = endTime - startTime
     print(totalTime)
-    writeFile(numberRange, totalTime)
+
 if __name__ == "__main__":
     main()
