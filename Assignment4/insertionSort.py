@@ -15,7 +15,7 @@ def openFile(filename):
 def writeFile(numberRange,totalTime):
     with open(filename, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["", "Insertion Sort"])
+        
         writer.writerow([numberRange,totalTime])
 def insertionSort(arr):
     for i in range(1, len(arr)):

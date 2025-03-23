@@ -19,6 +19,6 @@ def main():
     endTime = time.time()
     totalTime = endTime - startTime
     print(totalTime)
-
+    
 if __name__ == "__main__":
     main()
