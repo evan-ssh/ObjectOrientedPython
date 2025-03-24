@@ -1,4 +1,10 @@
 import random,csv,time
+def writeToFile(filename,nums,totalTime):
+    with open(filename,mode='a',newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([nums,totalTime])
+        print("File written")
+
 def mergeSort(arr):
     if len(arr) > 1:
         leftArr = arr[:len(arr)//2]

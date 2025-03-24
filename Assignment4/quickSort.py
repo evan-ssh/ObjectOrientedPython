@@ -1,5 +1,12 @@
 import csv, random, time
 
+def writeToFile(filename,nums,totalTime):
+    with open(filename,mode='a',newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([nums,totalTime])
+        print("File written")
+
+
 def quickSort(arr, left, right):
     stack = []
     stack.append((left, right))
