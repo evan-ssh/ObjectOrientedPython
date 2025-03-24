@@ -11,13 +11,14 @@ def selectionSort(arr):
 
 def main():
     arr = []
-    for _ in range(2000):
+    numbers = 2000
+    for _ in range(numbers):
         arr.append(random.randint(1,100))
     startTime = time.time()
     selectionSort(arr)
     endTime = time.time()
     totalTime = endTime - startTime
     print(totalTime)
-
+    
 if __name__ == "__main__":
     main()
