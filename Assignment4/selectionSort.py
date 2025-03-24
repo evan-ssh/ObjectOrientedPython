@@ -1,6 +1,13 @@
 import csv
 import time
 import random
+
+def writeToFile(filename,nums,totalTime):
+    with open(filename,mode='a',newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([nums,totalTime])
+        print("File written")
+
 def selectionSort(arr):
     for i in range(0, len(arr)-1):
         currentMinIndex = i
@@ -11,14 +18,13 @@ def selectionSort(arr):
 
 def main():
     arr = []
-    numbers = 2000
-    for _ in range(numbers):
+    for _ in range(2000):
         arr.append(random.randint(1,100))
     startTime = time.time()
     selectionSort(arr)
     endTime = time.time()
     totalTime = endTime - startTime
     print(totalTime)
-    
+
 if __name__ == "__main__":
     main()
