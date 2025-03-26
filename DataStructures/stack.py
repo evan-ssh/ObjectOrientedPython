@@ -15,6 +15,12 @@ class Stack:
     def size(self):
         return len(self.stack)
     
+    def peek(self):
+        if len(self.stack) == 0:
+            print("Error: Stack is empty. Nothing to peek.")
+            return None
+        return self.stack[-1]
+    
 def main():
     stack = Stack()
     while True:
