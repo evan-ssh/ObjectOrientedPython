@@ -17,17 +17,17 @@ class SinglyLinkedList:
             self.head = new_node #Make new node the head 
 
 
-    def append(self,data):
+    def AddEnd(self,data):
         new_node = Node(data)
         if not self.head: #If list is empty
             self.head = new_node
         else:
             curr = self.head #Set current node to self.head 
-            while curr.next: #Traverse list until the final node is reached
-                curr = curr.next
-            curr.next = new_node #Set last node pointer to the new node 
+            while curr.pointer: #Traverse list until the final node is reached
+                curr = curr.pointer
+            curr.pointer = new_node #Set last node pointer to the new node 
 
-    def delete(self,data):
+    def Delete(self,data):
         if not self.head:
             print("List is empty")
 
@@ -42,3 +42,16 @@ class SinglyLinkedList:
             curr.pointer = curr.pointer.pointer
         else:
             print(f"Node {data} could not be found")
+ 
+    def Show(self):
+        curr = self.head # Start at First Node
+        while curr: #Traverse
+            print(curr.data, end=" | ") #Acess data
+            curr = curr.pointer #Move to next node
+        
+if __name__ == "__main__":
+    linked_list = SinglyLinkedList()
+    linked_list.AddEnd(1)
+    linked_list.AddEnd(2)
+    linked_list.AddEnd(3)
+    linked_list.Show()
