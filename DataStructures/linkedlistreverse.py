@@ -48,4 +48,24 @@ class SinglyLinkedList:
         while curr: 
             print(curr.data, end=" | ") 
             curr = curr.pointer 
-        
+    
+    def Reverse(self):
+        prev = None
+        curr = self.head
+
+        while curr:
+            nextNode = curr.pointer
+            curr.pointer = prev
+            prev = curr
+            curr = nextNode
+        self.head = prev
+
+if __name__ == "__main__":
+    linked_list = SinglyLinkedList()
+    linked_list.AddEnd(1)
+    linked_list.AddEnd(2)
+    linked_list.AddEnd(3)
+    linked_list.Show()  
+
+    linked_list.Reverse()
+    linked_list.Show() 
