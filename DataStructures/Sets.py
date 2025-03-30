@@ -13,3 +13,14 @@ popItem = numSet.pop() #Removes and returns item
 print(popItem)
 
 
+setA = {1, 2, 3}
+setB = {3, 4, 5}
+unionSet = setA.union(setB)
+intersectSet = setA.intersection(setB)
+differenceSet = setA.difference(setB)
+print("Union:", setA | setB) #Returns elements in both sets
+print("Union:", unionSet)
+print("Intersection:", setA & setB) #Returns matching elements 
+print("Intersection:", intersectSet)
+print("Difference:", setA - setB) # Returns only whats not in set B from Set a
+print("Difference:", differenceSet)
