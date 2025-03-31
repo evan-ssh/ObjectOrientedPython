@@ -56,7 +56,13 @@ class LinkedList:
                 lastNode.next = curr.next
                 return
             curr_idx += 1
-
+    def length(self):
+        current = self.head
+        count = 0
+        while current is not None:
+            count += 1
+            current = current.next
+        return count
 if __name__ == "__main__":
     myList = LinkedList()
 
