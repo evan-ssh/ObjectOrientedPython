@@ -11,7 +11,7 @@ def removeList(randomNums,num):
     count = 0
     while num in randomNums:
         randomNums.remove(num)
-        count +=1
+        count += 1
     return count
 
 def main():
