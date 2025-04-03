@@ -20,8 +20,10 @@ class Stack:
 
     def pop(self):
         return self.stack.pop()
+    
     def display(self):
         return ", ".join(map(str,self.stack))
+    
 def reverseK(queue, k):
     if k > len(queue) or k <= 0:
         print("Enter a valid number")

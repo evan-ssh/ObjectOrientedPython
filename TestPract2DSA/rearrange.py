@@ -1,3 +1,26 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def add(self,data):
+        self.stack.append(data)
+
+    def pop(self):
+        return self.stack.pop()
+    def length(self):
+        return len(self.stack)
+    
+class Queue:
+    def __init__(self):
+        self.queue = []
+    def enqueue(self,data):
+        self.queue.append(data)
+    def dequeue(self):
+        return self.queue.pop(0)
+    def length(self):
+        return len(self.queue)
+
+
 def interleaveQueue(queue):
     if len(queue) % 2 != 0:
         print("Queue length must be even.")
