@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f720068-a6f2-4c6c-845c-d45cf79c6b35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assignment4/insertionSort.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment4/insertionSort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/testData.csv" afterDir="false" />
-    </list>
+    <list default="true" id="8f720068-a6f2-4c6c-845c-d45cf79c6b35" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
