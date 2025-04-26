@@ -7,24 +7,20 @@ def serveCustomer(console, customer):
 
     for char in console:
         stack.push(char)
-
     for cust in customer:
         queue.enqueue(cust)
 
     while not queue.isEmpty() and not stack.isEmpty():
-        if queue.peek() == stack.peek():
-            queue.dequeue()
-            stack.pop()
-        else:
-            queue.enqueue(queue.dequeue())
-
-        matchfound = False
+        served = False
         for _ in range(queue.size()):
             if queue.peek() == stack.peek():
-                match_found = True
-            queue.enqueue(queue.dequeue())  # Rotate the queue to preserve order
-
-        if not match_found:
+                queue.dequeue()
+                stack.pop()
+                served = True
+                break
+            else:
+                queue.enqueue(queue.dequeue())
+        if not served:
             break
 
     return queue.size()

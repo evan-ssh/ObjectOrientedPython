@@ -1,0 +1,83 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, element):
+        self.stack.append(element)
+
+    def pop(self):
+        if self.isEmpty():
+            return "Stack is empty"
+        return self.stack.pop()
+
+    def peek(self):
+        if self.isEmpty():
+            return "Stack is empty"
+        return self.stack[-1]
+
+    def isEmpty(self):
+        return len(self.stack) == 0
+
+    def size(self):
+        return len(self.stack)
+
+
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def enqueue(self, element):
+        self.queue.append(element)
+
+    def dequeue(self):
+        if self.isEmpty():
+            return "Queue is empty"
+        return self.queue.pop(0)
+
+    def peek(self):
+        if self.isEmpty():
+            return "Queue is empty"
+        return self.queue[0]
+
+    def isEmpty(self):
+        return len(self.queue) == 0
+
+    def size(self):
+        return len(self.queue)
+
+def serveTickets(tickets,people):
+    stack = Stack()
+    queue = Queue()
+    for ticket in tickets:
+        stack.push(ticket)
+
+    for person in people:
+        queue.enqueue(person)
+    
+    while not stack.isEmpty() and not queue.isEmpty():
+        served = False
+        for _ in range(queue.size()):
+            if queue.peek() == stack.peek():
+                queue.dequeue()
+                stack.pop()
+                served = True
+                break
+            else:
+                queue.enqueue(queue.dequeue())
+        if not served:#If no match after queue has been fully rotated return people left in queue
+            break
+    return queue.size()
+
+
+
+def main():
+    tickets = [101, 102, 103, 104]
+    people = [102, 104, 101, 103]
+    print("People unable to buy tickets:", serveTickets(tickets, people))  # Output: 0
+
+    tickets2 = [101, 102, 103, 104]
+    people2 = [105, 106, 107, 108]
+    print("People unable to buy tickets:", serveTickets(tickets2, people2))  # Output: 4
+
+if __name__ == "__main__":
+    main()

@@ -30,8 +30,7 @@ class ShoppingCart:
             if item.name == productName:
                 self.__cart.remove(item)
                 return f"{productName} was removed from your cart"
-            else:
-                return f"{productName} was not found in your cart"
+        return f"{productName} was not found in your cart"
             
     def amountCart(self):
         return len(self.__cart)
