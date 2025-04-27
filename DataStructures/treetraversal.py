@@ -33,6 +33,15 @@ class Node:
             res.append(root.data)
             res = res + self.inorderTraversal(root.right)
         return res
+    
+    def search(self, value):
+        if self.data == value:
+            return True
+        elif value < self.data and self.left:
+            return self.left.search(value)
+        elif value > self.data and self.right:
+            return self.right.search(value)
+        return False
 
 root = Node(27)
 root.insert(14)
@@ -41,6 +50,7 @@ root.insert(10)
 root.insert(19)
 root.insert(31)
 root.insert(42)
+print(root.search(24))  
+print(root.search(50)) 
 
-# Print the tree in-order
 print("Inorder Traversal:", root.inorderTraversal(root))
