@@ -33,6 +33,13 @@ class Node:
             res.append(root.data)
             res = res + self.inorderTraversal(root.right)
         return res
+    
+    def height(self):
+        if self is None:
+            return -1  
+        left_height = self.left.height() if self.left else -1
+        right_height = self.right.height() if self.right else -1
+        return 1 + max(left_height, right_height)
 
 root = Node(27)
 root.insert(14)
@@ -44,3 +51,4 @@ root.insert(42)
 
 # Print the tree in-order
 print("Inorder Traversal:", root.inorderTraversal(root))
+print("Height of the tree:", root.height())
