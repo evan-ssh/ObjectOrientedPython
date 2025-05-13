@@ -28,6 +28,13 @@ class CallCenterQueue:
     def is_empty(self):
         return len(self.queue) == 0
 
+    def remove_caller(self, name):
+        # Remove the first caller with the given name
+        for caller, (caller_name, vip) in enumerate(self.queue):
+            if caller_name == name:
+                del self.queue[caller]
+                return True, vip
+        return False, None
 
 def main():
     ccq = CallCenterQueue()
@@ -39,6 +46,7 @@ def main():
         print("4. Peek at Next Caller")
         print("5. Exit")
         print("6. Add VIP Caller")
+        print("7. Remove Caller by Name") 
 
         choice = input("Enter your choice: ")
 
@@ -78,6 +86,14 @@ def main():
             name = input("Enter VIP caller name: ")
             ccq.add_caller(name, vip=True)
             print(f"{name} added to front of queue as VIP.")
+        elif choice == "7":
+            name = input("Enter the name of the caller to remove: ")
+            removed, vip = ccq.remove_caller(name)
+            if removed:
+                status = " (VIP)" if vip else ""
+                print(f"Removed {name}{status} from the queue.")
+            else:
+                print(f"No caller named {name} found in the queue.")
         else:
             print("Invalid choice.")
 
