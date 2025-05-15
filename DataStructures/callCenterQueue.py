@@ -29,7 +29,6 @@ class CallCenterQueue:
         return len(self.queue) == 0
 
     def remove_caller(self, name):
-        # Remove the first caller with the given name
         for caller, (caller_name, vip) in enumerate(self.queue):
             if caller_name == name:
                 del self.queue[caller]
@@ -38,6 +37,7 @@ class CallCenterQueue:
 
 def main():
     ccq = CallCenterQueue()
+    call_history = []  
 
     while True:
         print("\n1. Add Caller")
@@ -46,7 +46,8 @@ def main():
         print("4. Peek at Next Caller")
         print("5. Exit")
         print("6. Add VIP Caller")
-        print("7. Remove Caller by Name") 
+        print("7. Remove Caller by Name")
+        print("8. Show Last 5 Answered Calls") 
 
         choice = input("Enter your choice: ")
 
@@ -60,6 +61,7 @@ def main():
                 name, vip = caller
                 status = " (VIP)" if vip else ""
                 print(f"Answered call from {name}{status}.")
+                call_history.append((name, vip))  
             else:
                 print("No callers in queue.")
         elif choice == "3":
@@ -94,6 +96,14 @@ def main():
                 print(f"Removed {name}{status} from the queue.")
             else:
                 print(f"No caller named {name} found in the queue.")
+        elif choice == "8":
+            print("Last 5 answered calls:")
+            if call_history:
+                for name, vip in reversed(call_history[-5:]):
+                    status = " (VIP)" if vip else ""
+                    print(f"- {name}{status}")
+            else:
+                print("No calls have been answered yet.")
         else:
             print("Invalid choice.")
 
