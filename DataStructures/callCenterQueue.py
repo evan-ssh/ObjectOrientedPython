@@ -39,6 +39,7 @@ def main():
     ccq = CallCenterQueue()
     call_history = []  
 
+    
     while True:
         print("\n1. Add Caller")
         print("2. Answer Call")
@@ -47,7 +48,8 @@ def main():
         print("5. Exit")
         print("6. Add VIP Caller")
         print("7. Remove Caller by Name")
-        print("8. Show Last 5 Answered Calls") 
+        print("8. Show Last 5 Answered Calls")
+        print("9. Show Caller Counts") 
 
         choice = input("Enter your choice: ")
 
@@ -104,6 +106,12 @@ def main():
                     print(f"- {name}{status}")
             else:
                 print("No calls have been answered yet.")
+        elif choice == "9":
+            vip_count, regular_count = ccq.count_callers()
+            total = vip_count + regular_count
+            print(f"VIP callers: {vip_count}")
+            print(f"Regular callers: {regular_count}")
+            print(f"Total callers: {total}")
         else:
             print("Invalid choice.")
 
