@@ -1,5 +1,4 @@
 from collections import deque
-
 class CallCenterQueue:
     def __init__(self):
         self.queue = deque()
@@ -35,11 +34,18 @@ class CallCenterQueue:
                 return True, vip
         return False, None
 
+    def upgrade_to_vip(self, name):
+        for caller, (caller_name, vip) in enumerate(self.queue):
+            if caller_name == name:
+                del self.queue[caller]
+                self.queue.appendleft((name, True))
+                return True, vip
+        return False, None
+
 def main():
     ccq = CallCenterQueue()
     call_history = []  
 
-    
     while True:
         print("\n1. Add Caller")
         print("2. Answer Call")
@@ -49,8 +55,8 @@ def main():
         print("6. Add VIP Caller")
         print("7. Remove Caller by Name")
         print("8. Show Last 5 Answered Calls")
-        print("9. Show Caller Counts") 
-
+        print("9. Show Caller Counts")
+        print("10. Upgrade Caller to VIP")  
         choice = input("Enter your choice: ")
 
         if choice == "1":
@@ -112,6 +118,13 @@ def main():
             print(f"VIP callers: {vip_count}")
             print(f"Regular callers: {regular_count}")
             print(f"Total callers: {total}")
+        elif choice == "10":
+            name = input("Enter the name of the caller to upgrade to VIP: ")
+            upgraded, was_vip = ccq.upgrade_to_vip(name)
+            if upgraded:
+                print(f"{name} has been moved to the front as a VIP!")
+            else:
+                print(f"No caller named {name} found in the queue.")
         else:
             print("Invalid choice.")
 
