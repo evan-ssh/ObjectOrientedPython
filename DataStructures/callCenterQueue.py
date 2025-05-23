@@ -41,6 +41,12 @@ class CallCenterQueue:
                 self.queue.appendleft((name, True))
                 return True, vip
         return False, None
+    
+    def find_caller_position(self, name):
+        for caller, (caller_name, vip) in enumerate(self.queue):
+            if caller_name == name:
+                return caller + 1, vip
+        return None, None
 
 def main():
     ccq = CallCenterQueue()
@@ -56,7 +62,8 @@ def main():
         print("7. Remove Caller by Name")
         print("8. Show Last 5 Answered Calls")
         print("9. Show Caller Counts")
-        print("10. Upgrade Caller to VIP")  
+        print("10. Upgrade Caller to VIP")
+        print("11. Find Caller Position")  
         choice = input("Enter your choice: ")
 
         if choice == "1":
@@ -125,8 +132,17 @@ def main():
                 print(f"{name} has been moved to the front as a VIP!")
             else:
                 print(f"No caller named {name} found in the queue.")
+        elif choice == "11":
+            name = input("Enter the name of the caller to find: ")
+            position, vip = ccq.find_caller_position(name)
+            if position:
+                status = " (VIP)" if vip else ""
+                print(f"{name}{status} is at position {position} in the queue.")
+            else:
+                print(f"No caller named {name} found in the queue.")
         else:
             print("Invalid choice.")
+        
 
 if __name__ == "__main__":
     main()
