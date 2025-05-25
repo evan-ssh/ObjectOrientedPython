@@ -14,6 +14,9 @@ class CallCenterQueue:
             return self.queue.popleft()
         else:
             return None
+        
+    def clear_queue(self):
+        self.queue.clear()
 
     def peek(self):
         if self.queue:
@@ -64,6 +67,7 @@ def main():
         print("9. Show Caller Counts")
         print("10. Upgrade Caller to VIP")
         print("11. Find Caller Position")  
+        print("12. Clear Queue")
         choice = input("Enter your choice: ")
 
         if choice == "1":
@@ -140,6 +144,9 @@ def main():
                 print(f"{name}{status} is at position {position} in the queue.")
             else:
                 print(f"No caller named {name} found in the queue.")
+        elif choice == "12":
+            ccq.clear_queue()
+            print("All callers have been removed from the queue.")
         else:
             print("Invalid choice.")
         
