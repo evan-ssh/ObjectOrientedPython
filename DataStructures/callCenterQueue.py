@@ -47,6 +47,8 @@ class CallCenterQueue:
             if caller_name == name:
                 return caller + 1, vip
         return None, None
+    def list_vip_callers(self):
+        return [name for name, vip in self.queue if vip]
 
 def main():
     ccq = CallCenterQueue()
@@ -140,8 +142,17 @@ def main():
                 print(f"{name}{status} is at position {position} in the queue.")
             else:
                 print(f"No caller named {name} found in the queue.")
+        elif choice == "12":
+            vip_callers = ccq.list_vip_callers()
+            if vip_callers:
+                print("VIP callers in the queue:")
+                for name in vip_callers:
+                    print(f"- {name}")
+            else:
+                print("There are no VIP callers in the queue.")
         else:
             print("Invalid choice.")
+        
         
 
 if __name__ == "__main__":
