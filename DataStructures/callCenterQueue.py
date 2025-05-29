@@ -172,8 +172,19 @@ def main():
             ccq.clear_queue()
             print("Queue cleared.")
             print(f"Total callers cleared: {count}")
+
+        elif choice == "14":
+            callers = list(ccq.queue)
+            if callers:
+                print("Callers in reverse order:")
+                for name, vip in reversed(callers):
+                    status = " (VIP)" if vip else ""
+                    print(f"- {name}{status}")
+            else:
+                print("No callers in queue.")
         else:
             print("Invalid choice.")
+        
 
 if __name__ == "__main__":
     main()
