@@ -83,6 +83,9 @@ def main():
         print("11. Find Caller Position")
         print("12. List VIP Callers")
         print("13. Clear Queue")
+        print("14. Show Callers in Reverse Order")
+        print("15. Export Callers to File")
+
         choice = input("Enter your choice: ")
 
         if choice == "1":
@@ -182,6 +185,17 @@ def main():
                     print(f"- {name}{status}")
             else:
                 print("No callers in queue.")
+        elif choice == "15":
+            filename = input("Enter filename to export callers (e.g., callers.txt): ")
+            callers = list(ccq.queue)
+            try:
+                with open(filename, "w") as f:
+                    for name, vip in callers:
+                        status = " (VIP)" if vip else ""
+                        f.write(f"{name}{status}\n")
+                print(f"Callers exported to {filename}.")
+            except Exception as e:
+                print(f"Error exporting callers: {e}")
         else:
             print("Invalid choice.")
         
