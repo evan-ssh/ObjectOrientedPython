@@ -85,6 +85,7 @@ def main():
         print("13. Clear Queue")
         print("14. Show Callers in Reverse Order")
         print("15. Export Callers to File")
+        print("16. Show All Unique Caller Names")
 
         choice = input("Enter your choice: ")
 
@@ -196,6 +197,14 @@ def main():
                 print(f"Callers exported to {filename}.")
             except Exception as e:
                 print(f"Error exporting callers: {e}")
+        elif choice == "16":
+            unique_names = set(name for name, vip in ccq.queue)
+            if unique_names:
+                print("Unique caller names in the queue:")
+                for name in unique_names:
+                    print(f"- {name}")
+            else:
+                print("No callers in queue.")
         else:
             print("Invalid choice.")
         
