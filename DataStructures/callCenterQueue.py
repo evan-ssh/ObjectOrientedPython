@@ -86,6 +86,7 @@ def main():
         print("14. Show Callers in Reverse Order")
         print("15. Export Callers to File")
         print("16. Show All Unique Caller Names")
+        print("17. Show Next VIP Caller")
 
         choice = input("Enter your choice: ")
 
@@ -205,6 +206,14 @@ def main():
                     print(f"- {name}")
             else:
                 print("No callers in queue.")
+        elif choice == "17":
+            for name, vip in ccq.queue:
+                if vip:
+                    print(f"The next VIP caller is: {name}")
+                    break
+                else:
+                    print("No VIP callers in the queue.")
+                    break
         else:
             print("Invalid choice.")
         
