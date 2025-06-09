@@ -211,9 +211,10 @@ def main():
                 if vip:
                     print(f"The next VIP caller is: {name}")
                     break
-                else:
-                    print("No VIP callers in the queue.")
-                    break
+            else:
+                print("There are no VIP callers in the queue.")  
+        elif choice == "18":
+            print(f"Total calls ever answered: {len(call_history)}")
         else:
             print("Invalid choice.")
         
