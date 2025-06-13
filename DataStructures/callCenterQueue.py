@@ -87,6 +87,7 @@ def main():
         print("15. Export Callers to File")
         print("16. Show All Unique Caller Names")
         print("17. Show Next VIP Caller")
+        print("18. Show Percentage of VIP Callers in Queue")
 
         choice = input("Enter your choice: ")
 
@@ -215,6 +216,14 @@ def main():
                 print("There are no VIP callers in the queue.")  
         elif choice == "18":
             print(f"Total calls ever answered: {len(call_history)}")
+        elif choice == "18":
+            total = len(ccq.queue)
+            if total == 0:
+                print("No callers in queue.")
+            else:
+                vip_count = sum(1 for name, vip in ccq.queue if vip)
+                percent = (vip_count / total) * 100
+                print(f"VIP callers: {vip_count} out of {total} ({percent:.2f}%)")
         else:
             print("Invalid choice.")
         
